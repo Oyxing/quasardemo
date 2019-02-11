@@ -1,0 +1,74 @@
+<template>
+  <q-layout view="lHh Lpr lFf">
+    <div id="q-bodybox" class="userbodybox indexbox">
+        <div id="enterbox">
+            <!-- 提示 -->
+            <div class="logobox fl">
+                <div class="lg_top">
+                    <img src="statics/img/logobox-logo.png" alt="">
+                </div>
+                <div class="lg_bottom">
+                    版本号&nbsp;{{version}}
+                </div>
+            </div>
+            <div class="loginbox fr">
+                <div class="head">
+                    <div class="setting fr" style="width:60px;">
+            <ul v-if="btn">
+                <li><button id="minimized" class="minimizedicon loginicon" @click="minwin"></button></li>
+                <li><button id="closewin" class="closewinicon loginicon"  @click="hidewin"></button></li>
+            </ul>
+            </div>
+                </div>
+                <h2 id="logintitle" v-if="this.$route.path == '/user'">用户登录</h2>
+                <h2 id="logintitle" v-else-if="this.$route.path == '/user/reg'">用户注册</h2>
+                <div id="formview" class="loginformbox">
+            <router-view />
+        </div>
+            </div>
+        </div>
+    </div>
+  </q-layout>
+</template>
+
+<script>
+import { auto } from 'src/statics/js/auto.js'
+import { loginwin,removeCookies,operatebtn } from 'src/statics/js/public.js'
+import { hidewin,minwin } from 'src/statics/js/public.js'
+import electionBtn from 'src/pages/electionBtn.vue'
+export default {
+    name: 'MyLayout',
+    data () {
+      return {
+        version:this.$store.state.example.version,
+        btn:false,
+      }
+    },
+    created() {
+      loginwin()
+    },
+    mounted(){
+        operatebtn(this)
+        removeCookies("useruuid")
+        removeCookies("nickname")
+        removeCookies("userdata")
+    },
+    methods:{
+          minwin(){
+              minwin()
+          },
+          hidewin(){
+              hidewin()
+          }
+      },
+    components:{
+        electionbtn:electionBtn
+    }
+
+}
+
+
+</script>
+
+<style>
+</style>

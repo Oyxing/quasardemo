@@ -1,0 +1,153 @@
+<template>
+     <el-dialog id="copedetaildialog" v-if="dialogName == '备份数据库详情'" title="备份数据库详情" width="75%" :visible.sync="dialogVisible" :before-close="handleClose" :close-on-press-escape="false" :close-on-click-modal="false">
+            <q-table
+                v-loading="loading"
+                element-loading-text="正在加载..."
+                :data="copedetailsdata"
+                :columns="columns"
+                row-key="label"
+                rows-per-page-label="每页行数:"
+                :hide-bottom="hidebottom"
+            >
+            <q-td slot="body-cell-createtime" slot-scope="props" :props="props">
+                    {{timestampToTime(props.row.create_time)}}
+            </q-td>
+             <q-td slot="body-cell-filesourcesize" slot-scope="props" :props="props">
+                    {{formatstoragenet(props.row.file_source_size)}}   
+            </q-td>
+            <q-td slot="body-cell-handle" slot-scope="props" :props="props">
+                    <div class="q-mb-xs">
+                        <q-btn label="下载" color="red-7"  @click="copesqldown(props.row)"/>
+                    </div>
+                </q-td>
+            <div id="table-bottom" slot="pagination" slot-scope="props" class="row flex-center q-py-sm">
+                <q-btn
+                    round dense size="sm" icon="undo" color="secondary" class="q-mr-sm"
+                    :disable="props.isFirstPage"
+                    @click="props.prevPage"
+                />
+                <div class="q-mr-sm" style="font-size: small">
+                {{ props.pagination.page }} / {{ props.pagesNumber }}
+                </div>
+                <q-btn
+                    round dense size="sm" icon="redo" color="secondary"
+                    :disable="props.isLastPage"
+                    @click="props.nextPage"
+                />
+            </div>
+        </q-table>
+            
+    </el-dialog>
+</template>
+
+<script>
+import { timestampToTime,formatstoragenet } from 'src/statics/js/public.js'
+import { directoryDialog } from 'src/statics/js/index.js'
+
+export default {
+    data() {
+        return {
+            loading:true,
+            timestampToTime:timestampToTime,
+            formatstoragenet:formatstoragenet,
+            hidebottom:true,
+            columns:[ 
+                {
+                    name:'filename',
+                    required: true,
+                    label: '文件名',
+                    align: 'center',
+                    field: 'fs_file_name',
+                },  
+                {
+                    name:'filesourcesize',
+                    required: true,
+                    label: '文件大小',
+                    align: 'center',
+                    field: 'file_source_size',
+                },{
+                    name:'createtime',
+                    required: true,
+                    label: '备份时间',
+                    align: 'center',
+                    field: 'create_time',
+                },{
+                    name:'handle',
+                    required: true,
+                    label: '操作',
+                    align: 'center',
+                }
+            ]
+        }
+    },
+    methods:{
+        handleClose(){
+            this.$store.state.example.dialogVisible = false
+        },
+        copesqldown(row){
+             directoryDialog(this,row,'openDirectory','下载copesql')
+        }
+    },
+    computed:{
+        dialogVisible:{
+            get(){
+              return this.$store.state.example.dialogVisible
+            },
+            set(){
+              return this.$store.state.example.dialogVisible
+            }
+        },
+        dialogName:{
+            get(){
+              return this.$store.state.example.dialogName
+            },
+            set(){
+              return this.$store.state.example.dialogName
+            }
+        },
+        copedetailsdata:{
+            get(){
+                if(this.$store.state.example.copedetailsdata){
+                    if(this.$store.state.example.copedetailsdata.length > 5){
+                        this.hidebottom = false
+                    }else{
+                        this.hidebottom = true
+                    }
+                }
+                this.loading = false
+              return this.$store.state.example.copedetailsdata
+            },
+            set(){
+              return this.$store.state.example.copedetailsdata
+            }
+        },
+    }
+}
+
+function openDownloadDialog(url, saveName)
+{
+	if(typeof url == 'object' && url instanceof Blob)
+	{
+		url = URL.createObjectURL(url); // 创建blob地址
+	}
+	var aLink = document.createElement('a');
+	aLink.href = url;
+	aLink.download = saveName || ''; // HTML5新增的属性，指定保存文件名，可以不要后缀，注意，file:///模式下不会生效
+	var event;
+	if(window.MouseEvent) event = new MouseEvent('click');
+	else
+	{
+		event = document.createEvent('MouseEvents');
+		event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+	}
+	aLink.dispatchEvent(event);
+}
+
+</script>
+
+<style>
+#copedetaildialog .el-dialog__body {
+    padding: 0px 20px 0 !important;
+    height: calc(100% - 41px) !important;
+}
+</style>

@@ -1,0 +1,108 @@
+<template>
+    <div class="title_box">
+        <div class="usermess">
+            <div class="user">
+                <div class="userbox"> 
+                    <div class="user_iconbox">
+                        <div class="user_icon" :style="{'background-image':'url('+avatar+')'}"></div>
+                    </div>
+                    <div class="user_detailbox">
+                        <h4 class="userword">你好，<span class="username" :title="nickname">{{nickname}}</span>！</h4> <!-- 登录之后 -->
+                        <div id="userstate" :class="level?'uservip-none':'uservip-vip'"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="detailsmess">
+                <div class="mess">
+                     <router-link to="/copy" tag="a"></router-link >
+                </div>
+            </div>
+        </div>
+        <div class="list">
+            <div class="listfl"></div>
+            <div class="listfr">
+                <div class="lists listsmargin"> 
+                    <router-link to="/secretkey" tag="a">
+                        <div class="list_iconbox fl">
+                            <div class="list_iconbox_on _icon03"></div>
+                        </div>
+                        <div class="list_word fl">
+                            <div class="list_title">密钥对管理</div>
+                            <div class="list_subtitle">一键生成密钥对，数据安全翻几倍。</div>
+                        </div>
+                    </router-link >
+                </div>
+                <div  class="lists listsmargin">
+                    <router-link to="/task" tag="a">
+                        <div class="list_iconbox fl"> 
+                            <div class="list_iconbox_on _icon04"></div>
+                        </div>
+                        <div class="list_word fl">
+                            <div class="list_title">任务列表</div>
+                            <div class="list_subtitle">自定义创建任务,轻松备份。</div>
+                        </div>
+                    </router-link >
+                </div>
+                <div  class="lists">
+                    <router-link to="/copy" tag="a">
+                        <div class="list_iconbox fl">
+                            <div class="list_iconbox_on _icon01"></div>
+                        </div>
+                        <div class="list_word fl">
+                            <div class="list_title">备份详情</div>
+                            <div class="list_subtitle">数据丢失？一键下载恢复。</div>
+                        </div>
+                    </router-link >
+                </div>
+                <div  class="lists booking">
+                    <a href="#" @click="vippay">
+                        <div class="list_iconbox fl">
+                            <div class="list_iconbox_on _icon02"></div>
+                        </div>
+                        <div class="list_word fl">
+                            <div class="list_title">订购</div>
+                            <div class="list_subtitle">空间不够？一键扩容。</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<style>
+</style>
+
+<script>
+import { vippay,getCookies } from 'src/statics/js/publicPc.js'
+
+export default {
+  name: 'PageIndex',
+  data(){
+      return {
+        nickname:'',
+        level: 0,
+        avatar:"statics/img/head_default.png",
+        vippay:vippay
+      }
+  },
+  created(){
+        getCookies("userdata",(data)=>{
+            var datavalue = data.value
+            if(typeof(datavalue) == "object"){
+                this.avatar = "http://idcyw.cn" + datavalue.avatar
+            }else{
+                var newvalue = JSON.parse(datavalue)
+                this.avatar = "http://idcyw.cn" + newvalue.avatar
+            }
+        })
+        getCookies('nickname',(data)=>{
+            this.nickname = data.value
+        })
+  },
+  mounted(){
+    var box = document.getElementById("box")
+    box.className = "skinbg"
+  }
+}
+</script>

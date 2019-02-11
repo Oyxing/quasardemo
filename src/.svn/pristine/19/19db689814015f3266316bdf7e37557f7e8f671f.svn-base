@@ -1,0 +1,60 @@
+<template>
+<el-dialog id="eldialog" v-if="dialogName == '关于'" width="31.5%" :visible.sync="dialogVisible" :before-close="handleClose" :close-on-press-escape="false" :close-on-click-modal="false">
+     <div class="aboutmess">
+        <div class="about">
+            <img src="statics/img/logobox-logo.png" alt="">
+            <P>
+                版本号: {{version}}
+            </P>
+        </div>
+    </div>
+</el-dialog>
+</template>
+
+<script>
+export default {
+    data(){
+        return {
+            version:this.$store.state.example.version
+        }
+    },
+    methods:{
+         handleClose(){
+            this.$store.state.example.dialogVisible = false
+        },
+    },
+    computed:{
+         dialogVisible:{
+            get(){
+              return this.$store.state.example.dialogVisible
+            },
+            set(){
+              return this.$store.state.example.dialogVisible
+            }
+        },
+        dialogName:{
+            get(){
+              return this.$store.state.example.dialogName
+            },
+            set(){
+              return this.$store.state.example.dialogName
+            }
+        }
+    }
+}
+</script>
+
+<style>
+#eldialog .el-dialog {
+   background: url("~assets/img/aboutbg0.png") no-repeat 20% 50%;
+   border: 1px solid rgba(29, 29, 29, 0.49);
+}
+#eldialog .el-dialog__header {
+    padding: 0px !important;
+    background: rgba(255,255,255,0) !important;
+}
+#eldialog .el-dialog__body {
+    padding: 0 !important;
+    height: auto !important;
+}
+</style>
