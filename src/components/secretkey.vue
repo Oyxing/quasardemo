@@ -1,14 +1,5 @@
 <template>
-    <div class="pagecomp">
-        <div class="title_box skinbg">
-            <div class="detail_title">
-                <div class="detailicon keyicon fl"></div>
-                <div class="detailword fl">
-                    <h3 class="detailh3">私钥秘钥</h3>
-                    <p class="detailp">恢复简单，避免数据损坏</p>
-                </div>
-            </div>
-        </div>
+    <div class="pagecomp ">
         <div class="showmess"  v-loading="loading" element-loading-text="正在加载...">
             <div v-if="tableData.length <= 0 && btnnone" class="layui-form-item choice"> 
                 <div class="mt50" style="width: 100%;text-align: center;margin-top:50px;">
@@ -91,13 +82,14 @@
 </template>
 
 <script>
-import { tablebottom,timestampToTime } from 'src/statics/js/public.js'
+import { userwin,tablebottom,timestampToTime } from 'src/statics/js/public.js'
 import { jsonpget } from 'src/statics/js/axios.js'
 import { secretKey,directoryDialog } from 'src/statics/js/index.js'
 import { confirm } from 'src/statics/js/confirm.js'
 export default {
     data() {
         return {
+            userwin:userwin,
             post:document.location.port,
             btnnone:false,
             loading: true,
@@ -139,7 +131,14 @@ export default {
     },
     mounted(){
         var box = document.getElementById("box")
-        box.className = ""
+        var bodybox = document.getElementsByClassName('bodybox')[0]
+        var bodyhandlebox = document.getElementsByClassName('bodyhandlebox')[0]
+        if(!bodyhandlebox){
+            bodybox.className += ' bodyhandlebox';
+        }
+        if(box){
+            box.className = "handlebox"
+        }
     },
     methods:{
         getrsakey:function(){
@@ -182,7 +181,6 @@ export default {
 
                 });
         },
-        
         handleSuccess(response, file, fileList){
             if(response.success==0){
                 this.$message({
@@ -224,6 +222,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
+
 </style>
 

@@ -1,14 +1,6 @@
 <template>
 <div class="pagecomp">
-    <div class="title_box skinbg">
-       <div class="detail_title">
-            <div class="detailicon copemessicon fl"></div>
-            <div class="detailword fl">
-                <h3 class="detailh3">备份详情</h3>
-                <p class="detailp">恢复简单，避免数据损坏</p>
-            </div>
-        </div>
-    </div>
+  
     <div class="showmess" v-loading="loading" element-loading-text="正在加载...">
         <div class="nonebox" v-if="tableData.length <= 0">
             <img src="statics/img/NOneimg.png" alt="">
@@ -49,10 +41,14 @@
 </template>
 
 <script>
+
+import { userwin } from 'src/statics/js/public.js'
+
 import { jsonpget } from 'src/statics/js/axios.js'
 export default {
     data() {
         return {
+            userwin:userwin,
             loading:true,
             hidebottom:true,
             form:{
@@ -89,8 +85,13 @@ export default {
     },
     mounted() {
         var box = document.getElementById("box")
+        var bodybox = document.getElementsByClassName('bodybox')[0]
+        var bodyhandlebox = document.getElementsByClassName('bodyhandlebox')[0]
+        if(!bodyhandlebox){
+            bodybox.className += ' bodyhandlebox';
+        }
         if(box){
-            box.className = ""
+            box.className = "handlebox"
         }
     }, 
     methods:{
@@ -146,6 +147,20 @@ export default {
 }
 </script>
 
-<style>
-
+<style >
+.backup i {
+    color: #fff;
+}
+.backup{
+    float: right;
+    color: #fff;
+    text-align: center;
+    line-height: 36px;
+    width:36px;
+    height: 36px;
+    margin-top: 80px;
+    margin-right: 20px;
+    border-radius:50%;
+    border: 1px solid #9c9c9c;
+}
 </style>

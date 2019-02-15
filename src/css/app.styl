@@ -64,19 +64,18 @@ body{
 }
 .bodybox{
     position: relative;
-    width: 930px;
-    height: 610px;
+    width: 360px;
+    height: 640px;
     top: 0px;
     left: 0px;
     right: 0px;
     bottom: 0px;
     margin: auto;  
-    border:1px solid rgba(23, 28, 49, 0.48);
 }
 .userbodybox{
     position: relative;
-    width: 670px;
-    height: 515px;
+    width: 600px;
+    height: 370px;
     top: 0px;
     left: 0px;
     right: 0px;
@@ -100,13 +99,21 @@ button,input,select,option{
     background-image: url("~assets/img/boxbg.png");
     background-repeat: no-repeat;
 }
-
+.heardbj{
+    background-image: url("~assets/img/rw_header_bj.png");
+    background-repeat: no-repeat;
+}
 #box {
     position: relative;
-    width: 928px;
-    height: 608px;
+    width: 360px;
+    height: 640px;
     background-color: #fff;
     overflow: hidden;
+}
+
+.handlebox,.bodyhandlebox {
+    width:900px !important;
+    height:580px !important;
 }
 .indexbox{
     background-position: center center;
@@ -161,21 +168,24 @@ button,input,select,option{
 /* 登录 */
 #enterbox{
     position:relative;
-    width: 670px;
-    height: 515px;
-    border:1px solid rgba(23, 28, 49, 0.48);
-    background:#fff url("~assets/img/loginbg.png")no-repeat center bottom;
+    width: 100%;
+    height: 100%;
+}
+.userinput .el-input__inner {
+    border: none;
+    border-bottom: 1px solid #d6d6d5;
+    height: 30px;
 }
 .logobox{
-    width: 265px;
+    width: 206px;
     background: url("~assets/img/logoboxbg.png")no-repeat center bottom;
     height: 100%;
 }
 .lg_top{
-    text-align: center;
+   text-align: center;
     color: #fff;
     font-size: 16px;
-    margin-top: 128px;
+    margin-top: 80px;
 }
 .lg_top img{
     margin-bottom: 5px;
@@ -184,8 +194,8 @@ button,input,select,option{
     text-align: center;
     color: rgba(255, 255, 255, 0.56);
     font-size: 13px;
-    margin-top: 175px;
-    width: 265px;
+    margin-top: 40px;
+    width: 206px;
 }
 
 .loginicon{
@@ -193,8 +203,8 @@ button,input,select,option{
     background-repeat: no-repeat;
 }
 .loginbox{
-   width: 403px;
-    height: 515px;
+    width: 392px;
+    height: 100%;
     position: relative;
 }
 .loginbox .setting .minimizedicon{
@@ -211,12 +221,12 @@ button,input,select,option{
 }
 #logintitle{
     width: 100%;
-    margin: 95px 0 30px;
+    margin: 55px 0 30px;
     text-align: center;
-    font-size: 19px;
+    font-size: 22px;
     font-weight: bold;
-    color: #4c7ef3;
-    font-family: pingfang SC;
+    color: #72a0ff;
+    font-family:"微软雅黑";
 }
 .loginbox .input_item{
     margin-bottom: 20px;
@@ -245,7 +255,7 @@ button,input,select,option{
 }
 
 .loginformbox .input_item input{
-    width: 250px;
+    width: 215px;
 }
 .loginbox .input_item input:focus{
     border-color: #1c94fc;
@@ -288,39 +298,46 @@ button,input,select,option{
     background: url("~assets/img/loginbox-btnbg.png")no-repeat center center;
 }
 
-a.register{
+.register{
     display: block;
     background: rgba(0,0,0,0);
     border: none;
     float: right;
-    font-size: 13px;
-    color: #666;
+    font-size: 14px;
+    color: #d6d6d6;
     margin-top: 5px;
     text-align: right;
     padding: 0px 5px;
     cursor: pointer;
-    width: 100px;
 }
-a.register:hover{
+.register a{
+     color: #d6d6d6;
+     border-bottom:1px solid #d6d6d6;
+}
+.register a:hover{
     color: #4c7ef3;
     font-weight: bold;
+    border-bottom:1px solid #4c7ef3;
 }
 
 /********** 头部 ****************/
 .head {
-    position:absolute;
+    position: absolute;
     width: 100%;
     height: 30px;
     color: #fff;
-    padding: 5px 10px 0px 10px;
 }
 
 .head .title,
 .head .setting {
     line-height: 30px;
+    margin-top:10px;
+    margin-right:10px;
 }
 .head .title{
     font-size: 16px;
+    margin-top:15px;
+    margin-left:23px;
 }
 
 .topiconBg{
@@ -344,6 +361,15 @@ a.register:hover{
 .topiconno{
     background-image: url("~assets/img/small_bell_on.png");
     background-repeat: no-repeat;
+}
+
+/* 更多*/
+.eveheader{
+    width:100%;
+    height:155px;
+    background-repeat:no-repeat;
+    background-position:center center;
+    background: url("~assets/img/index_header_bj.png");  
 }
 /* 设置 */
 .setbtn .setbtnicon{
@@ -463,65 +489,43 @@ a.register:hover{
 /****************** 首页头像行 *************/
 /* 开始进入 */
 .usermess {
-    height: 227px;
-    margin-top: 35px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    margin: 80px auto 27px;
 }
 
-.usermess .user {
-    float: left;
-    width: 528px;
-    height: 227px;
-    position: relative;
-}
-.usermess .user .userbox{
-    height: 90px;
-    width: 453px;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-}
-.user_iconbox{
-    width: 90px;
-    height: 90px;
-    border-radius: 90px;
-    float: left;
-}
 .user_icon{
-    width: 90px;
-    height: 90px;
-    border-radius: 90px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     overflow: hidden;
-    border: 7px solid rgba(255, 255, 255, 0.21);
-
+    border: 12px solid rgba(255, 255, 255, 0.21);
 }
-
-.user_detailbox{
-    float:right;
-    width:calc(100% - 90px);
-    padding: 0 15px;
-    margin-top: 14.5px;
-}
-.userword{
+.nickname{
+    width: 100%;
+    text-align: center;
     color: #fff;
-    font-size: 18px;
-    font-weight: 100;
-    text-align: left;
+    font-size:18px;
+    margin-bottom:18px;
 }
-.userword .username{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    display: inline-block;
-    max-width: 258px;
-    position: relative;
-    top: 5px;
-    line-height: 24px;
+.boxbtn{
+    width:162px;
+    height:34px;
+    margin: 0 auto;
+    margin-bottom: 60px;
 }
+.btn{
+    background-color: #ff931f !important;
+    border-color: #ff931f !important;
+    width:100%;
+    height:100%;
+}
+
+
 /* 会员状态 */
 #userstate{
     width: 40px;
@@ -562,9 +566,42 @@ a.register:hover{
 }
 
 /****************** 首页底部块 *************/
-.list {
-    padding: 0 20px 20px;
+.listsum {
+    width:197px;
+    padding:0px 0px 10px 0px;
+    margin:0 auto;
+    color:#fff;
+    text-align: center;
 }
+.listsum .listbox{
+    width:68px;
+    margin-bottom:20px
+    cursor:pointer;
+}
+.listsum .listbox .iconfont{
+    font-size: 29px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 68px;
+}
+.listsum .list{
+    width:68px;
+    height:68px;
+    border:1px solid #fff;
+    border-radius:50%;
+}
+.listsum .listmess{
+    margin-top: 8px;
+    font-size: 12px;
+}
+.listsum .listbox:hover .list{
+    background:#fff;
+    color:#666666
+}
+
+
+
+
 
 .listfl {
     width: 290px;
@@ -659,16 +696,17 @@ a.register:hover{
     background-position: center 75%;
 }
 .detail_title{
-    height: 180px;
-    padding: 25px 0;
+    height: 160px;
+    padding: 20px 0px 0px 0px;
 }
 .detailicon{
-    height: 100px;
-    width: 100px;
-    background-image: url("~assets/img/detailtitle.png");
-    background-repeat: no-repeat;
-    margin-left: 100px;
-    margin-top: 30px;
+   
+    color:#fff;
+    line-height:100px;
+    text-align:left;
+    font-size:60px !important;
+    margin-left: 23px;
+    margin-top: 32px;
 }
 .copemessicon{
     background-position: left top;
@@ -687,13 +725,12 @@ a.register:hover{
     background-position: right bottom;
 }
 .detailword{
-    margin-left: 20px;
-    margin-top: 30px;
+    margin-left: 23px;
+    margin-top: 60px;
 }
 .detailword .detailh3{
-    margin-bottom: 10px;
-    margin-top: 4px;
     color: #fff;
+    line-height:none !important;
     font-size: 20px;
     font-weight: 100;
 }
@@ -701,11 +738,43 @@ a.register:hover{
     color: rgba(255,255,255,0.7);
     font-size: 17px;
 }
+
+/* 子页面 tabs 内容*/
+.el-tabs__item{
+    height: 56px !important;
+    line-height: 56px !important;
+    
+}
+.el-tabs__nav .is-active{
+    border-bottom: 1px solid #ececec;
+    border-top: 1px solid #ececec;
+    background-color:#fff;
+}
+.el-tabs__header{
+    width: 107px !important;
+    height: 420px !important;
+    background-color:#f5f8ff;
+    border: 1px solid #ececec;
+}
+.el-tabs__active-bar{
+    background-color:none !important;
+}
+.el-tabs--left .el-tabs__header.is-left{
+    margin-right: 0px !important;
+}
+.el-tabs__content{
+    background: #fff;
+    height: 420px;
+}
+.el-tab-pane{
+    margin: 0px 26px 0px 30px;
+}
 /* 子页面主体内容 */
 .showmess {
     width: 100%;
-    height: 400px;
+    height: 420px;
     overflow: hidden;
+    background:#fff;
 }
 /* 秘钥样式 */
 .showmess .private {
@@ -815,6 +884,23 @@ a.register:hover{
     white-space:nowrap;
 }
 
+/* 返回 */
+.backup i {
+    color: #fff;
+}
+.backup{
+    float: right;
+    cursor:pointer;
+    color: #fff;
+    text-align: center;
+    line-height: 36px;
+    width:36px;
+    height: 36px;
+    margin-top: 80px;
+    margin-right: 20px;
+    border-radius:50%;
+    border: 1px solid #9c9c9c;
+}
 .layui-btn {
     display: inline-block;
     width: 290px;
@@ -1399,7 +1485,9 @@ border-top: none;
 .el-button {
     padding: 10px 35px !important;
     font-size: 14px !important;
-    border-radius: 0 !important;
+    border-radius: 3px !important;
+    background-color: #72a0ff;
+    border-color: #72a0ff;
 }
 .el-input__inner{
     border-radius: 0 !important;
@@ -1421,7 +1509,8 @@ border-top: none;
     color: #fff !important;
 }
 .el-input__prefix {
-    left: 8px !important;
+    left: 2px !important;
+    color: #bfbfbf !important;
 }
 .el-notification {
     width: auto !important;

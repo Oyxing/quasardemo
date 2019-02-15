@@ -1,12 +1,11 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-     <div id="q-bodybox" class="bodybox indexbox">
+     <div id="q-bodybox" class="bodybox indexbox" >
        	<div id="box" >
               <div class="head">
-                    <div class="title fl">
-                        <img v-if="this.$route.path == '/'" src="statics/img/logo_s.png" alt="" class="fl">
-                        <router-link v-else class="backicon topiconBg" to="/" tag="a" ></router-link>
-                    </div>
+                <div class="title fl">
+                    <img src="statics/img/logo_s.png" alt="" class="fl">
+                </div>
               <div class="setting fr">
                   <ul>
                     <!-- <li class="setbtn" @click="topiconno(topicon)">
@@ -56,7 +55,7 @@ export default {
         }
     },
     created() {
-        userwin()
+        userwin('/')
         this.getconfig()
         this.getabnormals()
     },

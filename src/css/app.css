@@ -8,12 +8,12 @@ a {
     color: #0c0c0c;
     text-decoration: none;
 }
-body{
-    overflow:hidden;
-    
-    
+
+body {
+    overflow: hidden;
 }
-#bodybox{
+
+#bodybox {
     position: relative;
     width: 930px;
     height: 610px;
@@ -21,9 +21,10 @@ body{
     left: 0px;
     right: 0px;
     bottom: 0px;
-    margin: auto;  
+    margin: auto;
 }
-#userbodybox{
+
+#userbodybox {
     position: relative;
     width: 670px;
     height: 515px;
@@ -31,14 +32,20 @@ body{
     left: 0px;
     right: 0px;
     bottom: 0px;
-    margin: auto;    
+    margin: auto;
 }
+
 ul li {
     list-style: none;
 }
-button,input,select,option{
+
+button,
+input,
+select,
+option {
     outline: none;
 }
+
 .fl {
     float: left;
 }
@@ -46,7 +53,8 @@ button,input,select,option{
 .fr {
     float: right;
 }
-.skinbg{
+
+.skinbg {
     background-image: url(/~assets/img/boxbg.png);
     background-repeat: no-repeat;
 }
@@ -57,14 +65,16 @@ button,input,select,option{
     height: 610px;
     background-color: #fff;
     overflow: hidden;
-    border:1px solid rgba(23, 28, 49, 0.48);
+    border: 1px solid rgba(23, 28, 49, 0.48);
 }
-.indexbox{
+
+.indexbox {
     background-position: center center;
 }
 
 
 /* 广告 */
+
 .advertising {
     position: fixed;
     width: 100%;
@@ -74,64 +84,80 @@ button,input,select,option{
     background: url("/~assets/img/boxbg.png") no-repeat center;
 }
 
+
 /*  */
-.verifyint{
+
+.verifyint {
     display: none;
-    height:40px;
+    height: 40px;
     color: #e21918;
     line-height: 40px;
     font-size: 14px;
 }
+
 .advertising .advertise {
     position: absolute;
     right: 0px;
     top: 0px;
     padding: 0px 10px;
 }
+
 .advertising .advertise span {
     padding: 20px 10px;
     line-height: 40px;
     text-align: center;
 }
+
 .advertising .advertise .turnoff {
     cursor: pointer;
-    background:rgba(0,0,0,0);
+    background: rgba(0, 0, 0, 0);
     padding: 5px 10px;
     color: #ff0000;
 }
+
+
 /* 暂无数据 */
-.nonebox{
+
+.nonebox {
     text-align: center;
     color: #666;
     font-size: 18px;
     margin-top: 50px;
 }
-.nonebox p{
+
+.nonebox p {
     margin-top: 20px;
 }
+
+
 /* 登录 */
-#enterbox{
-    position:relative;
+
+#enterbox {
+    position: relative;
     width: 670px;
     height: 515px;
-    border:1px solid rgba(23, 28, 49, 0.48);
-    background:#fff url(/~assets/img/loginbg.png)no-repeat center bottom;
+    border: 1px solid rgba(23, 28, 49, 0.48);
+    background: #fff url(/~assets/img/loginbg.png)no-repeat center bottom;
 }
-.logobox{
+
+.logobox {
     width: 265px;
     background: url(/~assets/img/logoboxbg.png)no-repeat center bottom;
     height: 100%;
 }
-.lg_top{
+
+.lg_top {
     text-align: center;
     color: #fff;
     font-size: 16px;
     margin-top: 128px;
 }
-.lg_top img{
+
+.lg_top img {
     margin-bottom: 5px;
 }
-.lg_bottom{
+
+.lg_bottom {
     text-align: center;
     color: rgba(255, 255, 255, 0.56);
     font-size: 13px;
@@ -139,43 +165,52 @@ button,input,select,option{
     width: 265px;
 }
 
-.loginicon{
+.loginicon {
     background-image: url(/~assets/img/loginbox-icon.png);
     background-repeat: no-repeat;
 }
-.loginbox{
-   width: 390px;
+
+.loginbox {
+    width: 390px;
     height: 515px;
 }
-.loginbox .setting .minimizedicon{
+
+.loginbox .setting .minimizedicon {
     background-position: 0 0;
 }
-.loginbox .setting li:hover .minimizedicon{
+
+.loginbox .setting li:hover .minimizedicon {
     background-position: 0px -30px;
 }
-.loginbox .setting .closewinicon{
+
+.loginbox .setting .closewinicon {
     background-position: 0px -60px;
 }
-.loginbox .setting li:hover .closewinicon{
+
+.loginbox .setting li:hover .closewinicon {
     background-position: 0px -90px;
 }
-.loginbox ._title{
+
+.loginbox ._title {
     width: 100%;
     height: 18px;
     margin: 70px 0 30px;
     background: url(/~assets/img/loginbox-title.png)no-repeat center center;
 }
-._title_reg{
+
+._title_reg {
     width: 100%;
     height: 18px;
     margin: 30px 0;
     background: url(/~assets/img/loginbox-title0.png)no-repeat center center;
 }
-.loginbox .input_item{
+
+.loginbox .input_item {
     margin-bottom: 20px;
     text-align: center;
 }
-.loginbox .input_item label{
+
+.loginbox .input_item label {
     height: 35px;
     line-height: 35px;
     font-size: 14px;
@@ -184,7 +219,8 @@ button,input,select,option{
     display: inline-block;
     text-align: right;
 }
-.loginbox .input_item input{
+
+.loginbox .input_item input {
     height: 42px;
     line-height: 42px;
     padding: 0 10px;
@@ -197,42 +233,51 @@ button,input,select,option{
     text-align: left;
 }
 
-.loginformbox .input_item input{
+.loginformbox .input_item input {
     width: 250px;
 }
-.loginbox .input_item input:focus{
+
+.loginbox .input_item input:focus {
     border-color: #1c94fc;
 }
-.loginbox .input_item .nameicon{
+
+.loginbox .input_item .nameicon {
     background-position: 3px -120px;
 }
-.loginbox .input_item .nameicon:focus{
+
+.loginbox .input_item .nameicon:focus {
     background-position: 3px -162px;
 }
-.loginbox .input_item .passwordicon{
+
+.loginbox .input_item .passwordicon {
     background-position: 3px -203px;
 }
-.loginbox .input_item .passwordicon:focus{
+
+.loginbox .input_item .passwordicon:focus {
     background-position: 3px -245px;
 }
-.loginbox .input_item .emailicon{
+
+.loginbox .input_item .emailicon {
     background-position: 3px -288px;
 }
-.loginbox .input_item .emailicon:focus{
+
+.loginbox .input_item .emailicon:focus {
     background-position: 3px -330px;
 }
-.loginbox .input_item .telicon{
+
+.loginbox .input_item .telicon {
     background-position: 3px -372px;
 }
-.loginbox .input_item .telicon:focus{
+
+.loginbox .input_item .telicon:focus {
     background-position: 3px -414px;
 }
 
-.loginbox .input_item button.submit{
+.loginbox .input_item button.submit {
     color: #fff;
     border: none;
-    height:42px;
-    line-height:42px;
+    height: 42px;
+    line-height: 42px;
     font-size: 15px;
     outline: none;
     cursor: pointer;
@@ -240,9 +285,10 @@ button,input,select,option{
     border-radius: 3px;
     background: url(/~assets/img/loginbox-btnbg.png)no-repeat center center;
 }
-a.register{
+
+a.register {
     display: block;
-    background: rgba(0,0,0,0);
+    background: rgba(0, 0, 0, 0);
     border: none;
     font-size: 13px;
     color: #666;
@@ -252,15 +298,15 @@ a.register{
     padding: 0px 55px;
     cursor: pointer;
 }
-a.register:hover{
+
+a.register:hover {
     color: #4c7ef3;
     font-weight: bold;
 }
 
 
-
-
 /********** 头部 ****************/
+
 .head {
     position: absolute;
     width: 100%;
@@ -273,34 +319,39 @@ a.register:hover{
 .head .setting {
     line-height: 30px;
 }
-.head .title{
+
+.head .title {
     font-size: 16px;
 }
 
-.topiconBg{
+.topiconBg {
     background-image: url(/~assets/img/topicon.png);
     background-repeat: no-repeat;
 }
-.topicon{
+
+.topicon {
     display: block;
     height: 30px;
     width: 30px;
     background-position: center;
     background-size: 20px;
     cursor: pointer;
-
 }
 
-.topiconnoyes{
+.topiconnoyes {
     background-image: url(/~assets/img/small_bell.png);
     background-repeat: no-repeat;
 }
-.topiconno{
+
+.topiconno {
     background-image: url(/~assets/img/small_bell_on.png);
     background-repeat: no-repeat;
 }
+
+
 /* 设置 */
-.setbtn .setbtnicon{
+
+.setbtn .setbtnicon {
     display: block;
     height: 30px;
     width: 30px;
@@ -334,10 +385,11 @@ a.register:hover{
     color: #333;
     font-size: 13px;
 }
-.setting .setmess li button{
+
+.setting .setmess li button {
     height: 32px;
     line-height: 32px;
-    background: rgba(0,0,0,0);
+    background: rgba(0, 0, 0, 0);
     border: none;
     cursor: pointer;
     display: block;
@@ -345,77 +397,99 @@ a.register:hover{
     background-image: url(/~assets/img/setbtnicon.png);
     background-repeat: no-repeat;
 }
-.setting .setmess li button.passwordicon{
-    background-position: 5px 0px;   
-}
-.setting .setmess li:hover .passwordicon{
-    background-position: 5px -32px; 
-} 
-.setting .setmess li button.upsetmysql{
-    background-position: 5px -256px;
-}
-.setting .setmess li:hover .upsetmysql{
-    background-position: 5px -288px; 
-} 
-.setting .setmess li button.exiticon{
-    background-position: 5px -64px;
-}
-.setting .setmess li:hover .exiticon{
-    background-position: 5px -96px; 
-} 
-.setting .setmess li button.logouticon{
-    background-position: 5px -128px;
-}
-.setting .setmess li:hover .logouticon{
-    background-position: 5px -160px;    
-} 
-.setting .setmess li button.abouticon{
-    background-position: 5px -192px;
-}
-.setting .setmess li:hover .abouticon{
-    background-position: 5px -224px;    
-} 
-.setting .setmess li a button{
-    
-    color: #333;
+
+.setting .setmess li button.passwordicon {
+    background-position: 5px 0px;
 }
 
+.setting .setmess li:hover .passwordicon {
+    background-position: 5px -32px;
+}
+
+.setting .setmess li button.upsetmysql {
+    background-position: 5px -256px;
+}
+
+.setting .setmess li:hover .upsetmysql {
+    background-position: 5px -288px;
+}
+
+.setting .setmess li button.exiticon {
+    background-position: 5px -64px;
+}
+
+.setting .setmess li:hover .exiticon {
+    background-position: 5px -96px;
+}
+
+.setting .setmess li button.logouticon {
+    background-position: 5px -128px;
+}
+
+.setting .setmess li:hover .logouticon {
+    background-position: 5px -160px;
+}
+
+.setting .setmess li button.abouticon {
+    background-position: 5px -192px;
+}
+
+.setting .setmess li:hover .abouticon {
+    background-position: 5px -224px;
+}
+
+.setting .setmess li a button {
+    color: #333;
+}
 
 .setmess li:hover {
     background: #5171f4;
     color: #fff;
 }
-.setmess li:hover button{
+
+.setmess li:hover button {
     color: #fff;
 }
 
 .setbtn:hover .setmess {
     display: block;
 }
+
+
 /* 最小化 */
-.minimizedicon,.closewinicon{
+
+.minimizedicon,
+.closewinicon {
     height: 30px;
     width: 30px;
     border: none;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
     display: block;
     background-position: 73% center;
     outline: none;
     cursor: pointer;
 }
-.closewinicon{
+
+.closewinicon {
     background-position: 120% center;
 }
+
+
 /* 返回首页 */
-.backicon{
+
+.backicon {
     width: 30px;
     height: 30px;
     display: block;
-    background-position:6px center;
+    background-position: 6px center;
 }
 
+
 /****************** 首页头像行 *************/
+
+
 /* 开始进入 */
+
 .usermess {
     height: 227px;
     margin-top: 30px;
@@ -427,18 +501,21 @@ a.register:hover{
     height: 200px;
     margin-left: 35px;
 }
-.usermess .user .userbox{
+
+.usermess .user .userbox {
     height: 104px;
     margin-top: 46px;
     margin-left: 75px;
 }
-.user_iconbox{
+
+.user_iconbox {
     width: 90px;
     height: 90px;
     border-radius: 90px;
     float: left;
 }
-.user_icon{
+
+.user_icon {
     width: 90px;
     height: 90px;
     border-radius: 90px;
@@ -447,9 +524,9 @@ a.register:hover{
     background-size: contain;
     overflow: hidden;
     border: 7px solid rgba(255, 255, 255, 0.21);
-
 }
-.userword{
+
+.userword {
     float: left;
     width: 130px;
     color: #fff;
@@ -462,8 +539,11 @@ a.register:hover{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+
 /* 会员状态 */
-#userstate{
+
+#userstate {
     position: relative;
     top: 10px;
     left: 27px;
@@ -472,10 +552,12 @@ a.register:hover{
     background: url(/~assets/img/user-vip.png) no-repeat;
     display: inline-block;
 }
-#userstate.uservip-none{
+
+#userstate.uservip-none {
     background-position: right center;
 }
-#userstate.uservip-vip{
+
+#userstate.uservip-vip {
     background-position: 0 0;
 }
 
@@ -497,14 +579,17 @@ a.register:hover{
     text-align: center;
     background-color: rgb(9, 204, 187);
 }
-.usermess .detailsmess .mess a{
+
+.usermess .detailsmess .mess a {
     display: block;
     width: 153px;
     height: 55px;
     background: url(/~assets/img/startbtn.png) no-repeat center center;
 }
 
+
 /****************** 首页底部块 *************/
+
 .list {
     height: 330px;
     padding: 0 20px 20px;
@@ -519,7 +604,6 @@ a.register:hover{
     background-position: center center;
     margin-right: 15px;
 }
-
 
 .listfr {
     width: 602px;
@@ -538,18 +622,22 @@ a.register:hover{
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.12);
 }
-.listfr .lists:hover{
+
+.listfr .lists:hover {
     background-color: rgba(0, 0, 0, 0.3);
 }
-.listfr .lists a{
+
+.listfr .lists a {
     width: 286px;
     height: 157.4px;
     display: block;
 }
-.listfr .lists.listsmargin{
+
+.listfr .lists.listsmargin {
     margin-bottom: 15px;
 }
-.list_iconbox{
+
+.list_iconbox {
     width: 65px;
     height: 65px;
     background: #fff;
@@ -558,52 +646,61 @@ a.register:hover{
     margin-top: 46px;
     margin-left: 30px;
 }
-.list_iconbox_on{
+
+.list_iconbox_on {
     width: 65px;
     height: 65px;
     background-image: url(/~assets/img/boxicon.png);
     background-repeat: no-repeat;
 }
-._icon01{
+
+._icon01 {
     background-position: 0 0;
 }
-._icon02{
+
+._icon02 {
     background-position: 100% 0%;
 }
-._icon03{
+
+._icon03 {
     background-position: 0% bottom;
 }
-._icon04{
+
+._icon04 {
     background-position: right bottom;
 }
 
-.list_word{
+.list_word {
     margin-left: 105px;
     width: 154px;
     margin-top: -60px;
 }
-.list_title{
+
+.list_title {
     margin-bottom: 10px;
     padding-top: -3px;
     color: #fff;
     font-size: 16px;
 }
-.list_subtitle{
-    color: rgba(255,255,255,0.6);
+
+.list_subtitle {
+    color: rgba(255, 255, 255, 0.6);
     font-size: 14px;
 }
 
 
-
 /* 子页面公共头部 */
-.title_box{
+
+.title_box {
     background-position: center 75%;
 }
-.detail_title{
+
+.detail_title {
     height: 180px;
     padding: 25px 0;
 }
-.detailicon{
+
+.detailicon {
     height: 100px;
     width: 100px;
     background-image: url(/~assets/img/detailtitle.png);
@@ -611,57 +708,67 @@ a.register:hover{
     margin-left: 100px;
     margin-top: 30px;
 }
-.copemessicon{
+
+.copemessicon {
     background-position: left top;
 }
-.ordericon{
+
+.ordericon {
     background-position: right top;
 }
-.setmysqlicon{
+
+.setmysqlicon {
     background-position: left bottom;
 }
 
 .keyicon {
     background-position: left bottom;
 }
-.taskicon{
+
+.taskicon {
     background-position: right bottom;
 }
-.detailword{
+
+.detailword {
     margin-left: 20px;
     margin-top: 30px;
 }
-.detailword .detailh3{
+
+.detailword .detailh3 {
     margin-bottom: 10px;
     margin-top: 22px;
     color: #fff;
     font-size: 20px;
     font-weight: 100;
 }
-.detailword .detailp{
-    color: rgba(255,255,255,0.7);
+
+.detailword .detailp {
+    color: rgba(255, 255, 255, 0.7);
     font-size: 17px;
 }
+
+
 /* 子页面主体内容 */
+
 .showmess {
     width: 100%;
     height: 400px;
     overflow: hidden;
 }
+
+
 /* 秘钥样式 */
+
 .showmess .private {
     position: absolute;
     left: 0px;
     right: 0px;
     top: 100px;
-    bottom: 0px; 
-    margin: auto;   
+    bottom: 0px;
+    margin: auto;
 }
 
-
-
-
-.upload .uploading{
+.upload .uploading {
     width: 400px;
     height: 60px;
     border: 1px dashed #000;
@@ -670,47 +777,60 @@ a.register:hover{
     background: url("/~assets/img/add.png") no-repeat center;
 }
 
-
-.showtable,.showtablemont{
+.showtable,
+.showtablemont {
     width: 100%;
     height: 400px;
     overflow-y: scroll-indicator;
     overflow-x: hidden;
-    display:block; 
+    display: block;
 }
 
-.showtable table,.showtablemont table{
+.showtable table,
+.showtablemont table {
     width: 100%;
     position: relative;
     margin: 0px;
 }
-.showtable table td,.showtable table th,.showtablemont table td,.showtablemont table th{
+
+.showtable table td,
+.showtable table th,
+.showtablemont table td,
+.showtablemont table th {
     color: #666;
     padding: 14px 9px;
     text-align: center;
     font-size: 14px;
 }
-.showtable thead,.showtablemont thead{
+
+.showtable thead,
+.showtablemont thead {
     background: #f3f4f4;
     width: 930px;
 }
-.showtable tbody,.showtablemont tbody{
-    margin-top: 50px;
 
+.showtable tbody,
+.showtablemont tbody {
+    margin-top: 50px;
 }
+
 .showtable table th,
-.showtablemont table th{
+.showtablemont table th {
     border-bottom: 1px solid #dcdcdc;
 }
 
-
-.showtable table .respbase button,.showtable table .respfile button,.showtablemont table .respbase button,.showtablemont table .respfile button{
+.showtable table .respbase button,
+.showtable table .respfile button,
+.showtablemont table .respbase button,
+.showtablemont table .respfile button {
     width: 90px;
     height: 35px;
     line-height: 35px;
     font-size: 14px;
     margin-top: 0;
- }
+}
+
+
 /* .showtable thead th{
     color: #515151;
     font-weight: bold;
@@ -718,16 +838,21 @@ a.register:hover{
     border-bottom: 1px solid #dcdcdc;
 }  */
 
-#tbkey td .layui-btn,#tbupload td .layui-btn{
+#tbkey td .layui-btn,
+#tbupload td .layui-btn {
     width: 60px;
     height: 30px;
     line-height: 30px;
-    padding:0;
-} 
-.uploadshow{
+    padding: 0;
+}
+
+.uploadshow {
     margin-top: 130px;
 }
+
+
 /* 模态框*/
+
 .modeshadow {
     position: absolute;
     width: 100%;
@@ -736,24 +861,26 @@ a.register:hover{
     opacity: 0.2;
     background-color: #0c0c0c;
 }
+
 .addmode {
-    margin:20px auto 0;
+    margin: 20px auto 0;
     z-index: 2;
     left: 0;
     right: 0;
 }
-.tacticsdom label,
-{
+
+.tacticsdom label {
     line-height: 40px;
 }
+
 .backups .box {
     float: left;
     text-overflow: ellipsis;
-    width:80px;
-    height:20px;
-    line-height:20px;
+    width: 80px;
+    height: 20px;
+    line-height: 20px;
     overflow: hidden;
-    white-space:nowrap;
+    white-space: nowrap;
 }
 
 .layui-btn {
@@ -771,7 +898,8 @@ a.register:hover{
     border-radius: 2px;
     cursor: pointer;
 }
-.addtaskbtn{
+
+.addtaskbtn {
     width: 153px;
     height: 55px;
     line-height: 55px;
@@ -901,18 +1029,21 @@ textarea {
     text-align: center;
     outline: 0;
 }
-select popup{
-    color:#000;
+
+select popup {
+    color: #000;
     background: #fff;
     overflow-y: scroll-indicator;
     overflow-x: hidden;
 }
-select popup.list{
+
+select popup.list {
     background: #fff;
     padding: 0px;
     max-height: 130px;
     max-height: 50px;
 }
+
 .layui-form-radio {
     line-height: 28px;
     margin: 6px 10px 0 0;
@@ -1001,30 +1132,35 @@ select popup.list{
     content: "\e605";
 }
 
+
 /* 添加任务模态框*/
+
 .addtaskmodetop {
     background-position: 95% 4%;
     height: 40px;
     line-height: 40px;
     padding: 0 5px;
 }
-.addtaskmodetop .title{
+
+.addtaskmodetop .title {
     color: #fff;
     font-size: 13px;
 }
-.addtaskmodetop .title img{
+
+.addtaskmodetop .title img {
     margin-top: 8px;
     height: 22px;
     width: 22px;
     margin-right: 3px;
-    
 }
-.addtaskmode .addmodeclosebtn{
+
+.addtaskmode .addmodeclosebtn {
     position: absolute;
     right: 0;
     top: 5px;
 }
-.addmodeclosebtn{
+
+.addmodeclosebtn {
     position: absolute;
     right: 0;
     top: 5px;
@@ -1038,7 +1174,7 @@ select popup.list{
 .period select {
     width: 35%;
     height: 42px;
-    background:#fff; 
+    background: #fff;
     line-height: 42px;
     border: 1px solid #e6e6e6;
     cursor: pointer;
@@ -1053,41 +1189,48 @@ select popup.list{
     line-height: 40px;
     text-align: center;
 }
+
+
 /* 关于 */
-.aboutmess{
+
+.aboutmess {
     height: 470px;
     margin: auto;
 }
+
 .aboutmess .about {
     color: #333;
     text-align: center;
     padding-top: 100px;
 }
-.aboutmess .about P{
+
+.aboutmess .about P {
     margin-top: 30px;
     font-size: 18px;
     color: #fff;
 }
 
+
 /* 弹出框 */
 
-#popup ,#copepopup{
+#popup,
+#copepopup {
     position: absolute;
     background: #ffffff;
     top: 221px;
     left: 0px;
     right: 0px;
-    bottom:0px;
+    bottom: 0px;
     margin: auto;
     width: 270px;
     height: 170px;
     margin-top: 0px;
     padding-top: 0px;
     border-width: 1px;
-    border-color:#ccc;
+    border-color: #ccc;
     border-style: solid;
     padding-bottom: 5px;
-    z-index:99;
+    z-index: 99;
 }
 
 #copepopup {
@@ -1095,51 +1238,57 @@ select popup.list{
     height: 440px;
     overflow: hidden;
 }
+
 #popup {
     display: none;
 }
 
-#popup .body .contentext{
+#popup .body .contentext {
     width: 100%;
     height: 100%;
-
 }
+
 #popup .head {
     width: 268px;
     height: 30px;
     background: #ccc;
     line-height: 30px;
 }
-#popup .head span{
+
+#popup .head span {
     color: #000;
 }
-#popup .head span:nth-child(1){
-    
+
+#popup .head span:nth-child(1) {
     float: left;
 }
-#popup .head span:nth-child(2){
+
+#popup .head span:nth-child(2) {
     float: right;
 }
+
 #popup .body {
-      height: 90px;
+    height: 90px;
     font-size: 14px;
     color: #666;
     width: 100%;
     text-align: center;
     display: table;
 }
-#popup .body span{
+
+#popup .body span {
     display: table-cell;
     vertical-align: middle;
     padding-left: 5px;
     padding-right: 5px;
 }
+
 #popup .operate {
     border-top: 1px solid #f3f3f3;
     height: 45px;
-    
 }
-#popup .operate button{
+
+#popup .operate button {
     height: 30px;
     line-height: 30px;
     text-align: center;
@@ -1150,16 +1299,19 @@ select popup.list{
     font-size: 13px;
     padding: 0 10px;
 }
-#popup .operate button:last-child{
+
+#popup .operate button:last-child {
     background: rgba(230, 230, 230, 0);
     color: #999999;
     border: 1px solid #dddddd;
 }
-#popup .operate button:first-child{
-    background: #09ccbb; 
-    color: #fff;  
+
+#popup .operate button:first-child {
+    background: #09ccbb;
+    color: #fff;
 }
-.operatebox{
+
+.operatebox {
     position: relative;
     width: 100%;
     top: 0px;
@@ -1170,13 +1322,16 @@ select popup.list{
     text-align: center;
 }
 
-.addtaskmodetop .titlename{
+.addtaskmodetop .titlename {
     color: #fff;
     font-size: 13px;
     width: 150px;
 }
+
+
 /* 用户秘钥 */
-#createface{
+
+#createface {
     background: #774df4;
     width: 155px;
     height: 45px;
@@ -1184,7 +1339,8 @@ select popup.list{
     margin-right: 20px;
     border-radius: 0;
 }
-#uploading{
+
+#uploading {
     background: #0789f1;
     width: 155px;
     height: 45px;
@@ -1193,8 +1349,10 @@ select popup.list{
     border-radius: 0;
 }
 
+
 /* 提示 */
-#messtip{
+
+#messtip {
     position: absolute;
     width: 80%;
     top: 0px;
@@ -1210,26 +1368,32 @@ select popup.list{
     box-shadow: 0px 8px 17.1px 0.9px rgba(43, 42, 42, 0.2);
     border-radius: 3px;
 }
-#messtip #messtipicon{
+
+#messtip #messtipicon {
     width: 15px;
     height: 15px;
     display: inline-block;
     position: relative;
     top: 2px;
 }
-#messtip #messtipicon.successicon{
-    background: url(/~assets/img/sicon.png) no-repeat center;  
-}
-#messtip #messtipicon.defeaticon{
-    background: url(/~assets/img/dicon.png) no-repeat center;
-}
-.messtipword{
-    height: 19px;
-    line-height: 19px;
-    color: rgba(255,255,255,0.8);
+
+#messtip #messtipicon.successicon {
+    background: url(/~assets/img/sicon.png) no-repeat center;
 }
 
+#messtip #messtipicon.defeaticon {
+    background: url(/~assets/img/dicon.png) no-repeat center;
+}
+
+.messtipword {
+    height: 19px;
+    line-height: 19px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
 /* 模态框 */
+
 #modelbox {
     position: absolute;
     width: 470px;
@@ -1240,116 +1404,103 @@ select popup.list{
     background: #fbf9fd;
     right: 0px;
     left: 0px;
-	z-index:99;
+    z-index: 99;
 }
 
 #modelbox {
     display: none;
 }
 
-
 ::-webkit-scrollbar {
     width: 5px;
     height: 10px;
-  }
+}
+
 ::-webkit-scrollbar-button,
 ::-webkit-scrollbar-button:vertical {
     display: none;
 }
+
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-track:vertical {
     background-color: black;
 }
+
 ::-webkit-scrollbar-track-piece {
     background-color: #f5f5f5;
 }
+
 ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb:vertical {
     margin-right: 10px;
     background-color: #a6a6a6;
 }
+
 ::-webkit-scrollbar-thumb:hover,
 ::-webkit-scrollbar-thumb:vertical:hover {
     background-color: #aaa;
 }
+
 ::-webkit-scrollbar-corner,
 ::-webkit-scrollbar-corner:vertical {
-    background-color: #535353;  
+    background-color: #535353;
 }
+
 ::-webkit-scrollbar-resizer,
 ::-webkit-scrollbar-resizer:vertical {
     background-color: #ff6e00;
 }
 
 
-
 /* 表格样式 */
-.showtable .tablehead{
+
+.showtable .tablehead {
     height: 50px;
     background-color: #f3f4f4;
     position: fixed;
     width: 929px;
-    z-index: 1;		
+    z-index: 1;
     border-bottom: 1px solid #e6e6e6;
-    margin:0 !important;					
+    margin: 0 !important;
 }
-.tablehead ul{
-	height: 50px;	
-	margin: 0;
-	padding: 0;
+
+.tablehead ul {
+    height: 50px;
+    margin: 0;
+    padding: 0;
 }
-.tablehead li{
-	float: left;
-	height: 50px;
-	padding: 0px 1%;
-	line-height: 50px;
+
+.tablehead li {
+    float: left;
+    height: 50px;
+    padding: 0px 1%;
+    line-height: 50px;
     text-align: center;
     color: #333;
 }
-.tablehead li:first-child{
-	margin-left: 0;
+
+.tablehead li:first-child {
+    margin-left: 0;
 }
+
 .showtable-body {
-width: 100%;
-margin-top: 50px;
+    width: 100%;
+    margin-top: 50px;
 }
+
 .showtable .tablebody {
-table-layout:fixed;
-clear:both;
-width:100%;
-border-top: none;
+    table-layout: fixed;
+    clear: both;
+    width: 100%;
+    border-top: none;
 }
 
-.showtable table td, .showtable table th, .showtablemont table td, .showtablemont table th {
- word-wrap:break-word ;
- border-bottom: 1px solid #e6e6e6;
- border-left:none !important;
- border-right:none !important;
+.showtable table td,
+.showtable table th,
+.showtablemont table td,
+.showtablemont table th {
+    word-wrap: break-word;
+    border-bottom: 1px solid #e6e6e6;
+    border-left: none !important;
+    border-right: none !important;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

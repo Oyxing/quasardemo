@@ -1,18 +1,5 @@
 <template>
-<div class="pagecomp">
-    <div class="title_box skinbg">
-        <div class="detail_title">
-            <div class="detailicon taskicon fl"></div>
-            <div class="detailword fl">
-                <h3 class="detailh3">相关任务</h3>
-                <p class="detailp">恢复简单，避免数据损坏</p>
-            </div>
-            <div class="handlebutton">
-                <el-button v-loading="loading" v-if="ipconfig && btnnone" @click="confighost" class="addtaskbtn" type="primary">数据库配置</el-button>
-                <el-button v-loading="loading" v-else-if="!ipconfig && btnnone" @click="keytask" class="addtaskbtn" type="primary">添加任务</el-button>
-            </div>
-        </div>
-    </div>
+<div class="pagecomp ">
     <div class="showmess" v-loading="dataloading" element-loading-text="正在加载...">
         <div class="nonebox" v-if="tableData.length <= 0">
             <img src="statics/img/NOneimg.png" alt="">
@@ -68,11 +55,11 @@
 <script>
 import { jsonpget } from 'src/statics/js/axios.js'
 import { confirm } from 'src/statics/js/confirm.js'
-import { timestampToTime } from 'src/statics/js/public.js'
-
+import { userwin,timestampToTime } from 'src/statics/js/public.js'
 export default {
     data() {
         return {
+            userwin:userwin,
             loading:true,
             dataloading:true,
             btnnone:false,
@@ -138,7 +125,14 @@ export default {
     },
     mounted() {
         var box = document.getElementById("box")
-        box.className = ""
+        var bodybox = document.getElementsByClassName('bodybox')[0]
+        var bodyhandlebox = document.getElementsByClassName('bodyhandlebox')[0]
+        if(!bodyhandlebox){
+            bodybox.className += ' bodyhandlebox';
+        }
+        if(box){
+            box.className = "handlebox"
+        }
     },
     methods:{
          keytask:function(){
@@ -250,6 +244,6 @@ export default {
 }
 </script>
 
-<style>
+<style >
 
 </style>

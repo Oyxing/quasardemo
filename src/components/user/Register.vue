@@ -1,23 +1,29 @@
 <template>
-<el-form :model="userForm" ref="userForm"  class="demo-dynamic" style="width: 65%;margin:auto;">
+<el-form :model="userForm" ref="userForm"  class="demo-dynamic" style="width:215px;margin:auto;">
 		<el-form-item
 			prop="nickname"
             :rules="[
 			{ required: true, message: '请输入用户名', trigger: 'blur' }
 			]"
+			class="userinput"
+			style="margin-bottom:12px"
 		>
 			<el-input v-model="userForm.nickname" placeholder="请输入用户名"><i slot="prefix" class="iconfont icon-yonghu"></i></el-input>
 		</el-form-item>
         <el-form-item
+		class="userinput"
+		style="margin-bottom:12px"
 			prop="username" 
 			:rules="[
 			{ required: true, message: '请输入邮箱地址', trigger: 'blur' },
 			{ type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur', 'change'] }
 			]"
 		>
-			<el-input v-model="userForm.username" placeholder="请输入用户邮箱"><i slot="prefix" class="iconfont icon-youxiang"></i></el-input>
+			<el-input v-model="userForm.username" placeholder="请输入用户邮箱"><i slot="prefix" style="font-size:12px;"  class="iconfont icon-youxiang"></i></el-input>
 		</el-form-item>
 	    <el-form-item
+		class="userinput"
+		style="margin-bottom:27px"
 			prop="password"
 			:rules="[
 			{ required: true, message: '请输入密码', trigger: 'blur' }

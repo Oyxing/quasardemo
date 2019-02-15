@@ -1,11 +1,13 @@
 <template>
-	<el-form :model="userForm" ref="userForm"  class="demo-dynamic" style="width: 65%;margin:auto;">
+	<el-form :model="userForm" ref="userForm"  class="demo-dynamic" style="width: 215px;margin:auto;">
 		<el-form-item
 			prop="username"
 			:rules="[
 			{ required: true, message: '请输入邮箱地址', trigger: 'blur' },
 			{ type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur'] }
 			]"
+			style="margin-bottom:12px"
+			class="userinput"
 		>
 			<el-autocomplete
 				style="width: 100%;"
@@ -14,13 +16,15 @@
 				:fetch-suggestions="querySearch"
 				:trigger-on-focus="false"
 				placeholder="请输入用户邮箱"
-			><i slot="prefix" class="iconfont icon-youxiang"></i></el-autocomplete>
+			><i slot="prefix" style="font-size:12px;" class="iconfont icon-youxiang"></i></el-autocomplete>
 		</el-form-item>
 		<el-form-item
+			class="userinput"
 			prop="password"
 			:rules="[
 			{ required: true, message: '请输入密码', trigger: 'blur' }
 			]"
+			style="margin-bottom:27px"
 		>
 			<el-input v-model="userForm.password" type="password" placeholder="请输入密码" @keyup.enter.native="submitForm('userForm')"><i slot="prefix" class="iconfont icon-mima"></i></el-input>
 		</el-form-item>
@@ -30,7 +34,9 @@
 				<span v-else>正在登陆<i class="el-icon-loading"></i></span>
 			</el-button>
 			<br />
-			<router-link  id="register_index" class="register" to="/user/reg" tag="a">立即注册</router-link>
+			<span  id="register_index" class="register">
+				没有账号？<router-link  to="/user/reg" tag="a">立即注册</router-link>
+			</span>
 		</el-form-item>
 	</el-form>
 </template>
@@ -84,7 +90,7 @@ export default {
 						setCookies('useruuid',res.msg.uuid)
 						setCookies('nickname',res.msg.nickname)
 						setCookies('userdata',JSON.stringify(res.msg))
-						userwin()
+						userwin('/')
 						storagename(this.userForm.username)
 						getcookiesname(this)
 					}else{

@@ -1,71 +1,43 @@
 <template>
     <div class="title_box">
         <div class="usermess">
-            <div class="user">
-                <div class="userbox"> 
-                    <div class="user_iconbox">
-                        <div class="user_icon" >
-                            <img :src="avatar" alt="头像" style="width:100%;height:100%">
-                        </div>
-                    </div>
-                    <div class="user_detailbox">
-                        <h4 class="userword">你好，<span class="username" :title="nickname">{{nickname}}</span>！</h4> <!-- 登录之后 -->
-                        <div id="userstate" :class="level?'uservip-none':'uservip-vip'"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="detailsmess">
-                <div class="mess">
-                     <router-link to="/copy" tag="a"></router-link >
-                </div>
-            </div>
+            <img class="user_icon" :src="avatar" alt="头像">
         </div>
-        <div class="list">
-            <div class="listfl"></div>
-            <div class="listfr">
-                <div class="lists listsmargin"> 
-                    <router-link to="/secretkey" tag="a">
-                        <div class="list_iconbox fl">
-                            <div class="list_iconbox_on _icon03"></div>
-                        </div>
-                        <div class="list_word fl">
-                            <div class="list_title">密钥对管理</div>
-                            <div class="list_subtitle">一键生成密钥对，数据安全翻几倍。</div>
-                        </div>
-                    </router-link >
+        <div class="nickname"> {{nickname}}</div>
+        <div class="boxbtn">
+            <el-button class="btn"  @click="operatewin('/componentlist/copy')" type="primary">备份详情 >></el-button>
+        </div>
+        <div class="listsum">
+            <div class="listbox fl" @click="operatewin('/componentlist/secretkey')">
+                <div class="list">
+                    <i class="iconfont icon-miyao"></i>
                 </div>
-                <div  class="lists listsmargin">
-                    <router-link to="/task" tag="a">
-                        <div class="list_iconbox fl"> 
-                            <div class="list_iconbox_on _icon04"></div>
-                        </div>
-                        <div class="list_word fl">
-                            <div class="list_title">任务列表</div>
-                            <div class="list_subtitle">自定义创建任务,轻松备份。</div>
-                        </div>
-                    </router-link >
+                <div class="listmess">
+                    秘钥对管理
                 </div>
-                <div  class="lists">
-                    <router-link to="/copy" tag="a">
-                        <div class="list_iconbox fl">
-                            <div class="list_iconbox_on _icon01"></div>
-                        </div>
-                        <div class="list_word fl">
-                            <div class="list_title">备份详情</div>
-                            <div class="list_subtitle">数据丢失？一键下载恢复。</div>
-                        </div>
-                    </router-link >
+            </div>
+             <div class="listbox fr" @click="operatewin('/componentlist/task')">
+                <div class="list">
+                    <i class="iconfont icon-renwu"></i>
                 </div>
-                <div class="lists booking">
-                    <a href="#" @click="vippay">
-                        <div class="list_iconbox fl">
-                            <div class="list_iconbox_on _icon02"></div>
-                        </div>
-                        <div class="list_word fl">
-                            <div class="list_title">订购</div>
-                            <div class="list_subtitle">空间不够？一键扩容。</div>
-                        </div>
-                    </a>
+                <div class="listmess">
+                    任务列表
+                </div>
+            </div>
+             <div class="listbox fl" @click="vippay">
+                <div class="list">
+                    <i class="iconfont icon-dinggou"></i>
+                </div>
+                <div class="listmess">
+                    订购
+                </div>
+            </div>
+             <div class="listbox fr" @click="operatewin('/componentlist/evenmore',true)">
+                <div class="list">
+                    <i class="iconfont icon-gengduo"></i>
+                </div>
+                <div class="listmess">
+                    更多
                 </div>
             </div>
         </div>
@@ -76,7 +48,7 @@
 </style>
 
 <script>
-import { vippay,getCookies } from 'src/statics/js/public.js'
+import { vippay,getCookies,operatewin } from 'src/statics/js/public.js'
 
 export default {
   name: 'PageIndex',
@@ -85,7 +57,8 @@ export default {
         nickname:'',
         level: 0,
         avatar:"statics/img/head_default.png",
-        vippay:vippay
+        vippay:vippay,
+        operatewin:operatewin
       }
   },
   created(){
@@ -93,7 +66,7 @@ export default {
             var datavalue = data.value
             if(this.$store.state.example.buildPC){
                 if(datavalue.avatar){
-                    this.avatar = "http://idcyw.cn" + datavalue.avatar
+                    this.avatar = datavalue.avatar
                 }
                 this.level = datavalue.level
             }else{
