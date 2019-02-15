@@ -76,11 +76,7 @@ export default {
     },
     mounted() {
         var box = document.getElementById("box")
-        var bodybox = document.getElementsByClassName('bodybox')[0]
-        var bodyhandlebox = document.getElementsByClassName('bodyhandlebox')[0]
-        if(!bodyhandlebox){
-            bodybox.className += ' bodyhandlebox';
-        }
+      
         if(box){
             box.className = "handlebox"
         }

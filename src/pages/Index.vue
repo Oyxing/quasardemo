@@ -32,7 +32,7 @@
                     订购
                 </div>
             </div>
-             <div class="listbox fr" @click="operatewin('/componentlist/evenmore',true)">
+             <div class="listbox fr" @click="operatewin('/evenmore',true)">
                 <div class="list">
                     <i class="iconfont icon-gengduo"></i>
                 </div>
