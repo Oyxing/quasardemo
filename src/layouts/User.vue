@@ -14,11 +14,11 @@
             <div class="loginbox fr">
                 <div class="head">
                     <div class="setting fr" style="width:60px;">
-            <ul v-if="btn">
-                <li><button id="minimized" class="minimizedicon loginicon" @click="minwin"></button></li>
-                <li><button id="closewin" class="closewinicon loginicon"  @click="hidewin"></button></li>
-            </ul>
-            </div>
+                        <ul v-if="btn">
+                            <li><button id="minimized" class="minimizedicon loginicon" @click="minwin"></button></li>
+                            <li><button id="closewin" class="closewinicon loginicon"  @click="hidewin"></button></li>
+                        </ul>
+                    </div>
                 </div>
                 <h2 id="logintitle" v-if="this.$route.path == '/user'">用户登录</h2>
                 <h2 id="logintitle" v-else-if="this.$route.path == '/user/reg'">用户注册</h2>

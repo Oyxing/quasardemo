@@ -100,7 +100,7 @@ button,input,select,option{
     background-repeat: no-repeat;
 }
 .heardbj{
-    background-image: url("~assets/img/rw_header_bj.png");
+    
     background-repeat: no-repeat;
 }
 #box {
@@ -599,21 +599,6 @@ button,input,select,option{
     color:#666666
 }
 
-
-
-
-
-.listfl {
-    width: 290px;
-    height: 330px;
-    background-color: rgba(0, 0, 0, 0.18);
-    background-image: url("~assets/img/indeximg.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    margin-right: 15px;
-}
-
-
 .listfr {
     width: 602px;
     height: 330px;
@@ -651,12 +636,7 @@ button,input,select,option{
     margin-top: 46px;
     margin-left: 30px;
 }
-.list_iconbox_on{
-    width: 65px;
-    height: 65px;
-    background-image: url("~assets/img/boxicon.png");
-    background-repeat: no-repeat;
-}
+
 ._icon01{
     background-position: 0 0;
 }
@@ -774,7 +754,7 @@ button,input,select,option{
     height: 56px;
     border-bottom: 1px solid #ececec;
     line-height: 56px;
-    font-size: 20px;
+    font-size: 18px;
     color: #828282;
 }
 .pagecompheard button{
@@ -782,6 +762,61 @@ button,input,select,option{
     margin-top: 11px;
     height: 30px;
     margin-left: 10px;
+}
+/* 订购 */
+.vipdivst {
+    width: 490px;
+    height: 208px;
+    margin-top: 16px;
+    background: #fff;
+}
+.vipdivst .divstmess {
+    width: 96px;
+    float: left;
+    cursor: pointer;
+    position: relative;
+    transition: all .3s linear;
+}
+.vipdivst .divstmess{
+    border-left:1px solid #efefef;
+}
+.vipdivst .divstmess:nth-child(5){
+    border-right:1px solid #efefef;
+}
+.vipdivst .tableheadmess{
+    width:104px;
+}
+.vipdivst .divstmess.tableheadmess div {
+    font-size: 13px;
+    border-left: none;
+    color: #666;
+    text-align: left;
+    padding: 0px 0px 0px 17px;
+}
+.vipdivst .divstmess .vip-table-ident {
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    font-size: 15px;
+    background: #7aa6ff;
+    border-top: none;
+    color: #fff;
+}
+.vip-table-item {
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+    border-bottom: 1px solid #efefef;
+}
+.vip-table-dui{
+    font-weight:bold;
+    color:red;
+    font-size:18px;
+}
+.vip-table-money{
+    color:red;
 }
 /* 子页面主体内容 */
 .showmess {
@@ -800,9 +835,25 @@ button,input,select,option{
     margin: auto;   
 }
 
-
-
-
+/* 密钥上传*/
+.buttonbox button{
+    width: 80%;
+    height: 40px;
+    margin: auto;
+    line-height: 0px;
+    display: table-cell;
+    vertical-align:middle ;
+}
+.buttonbox .el-upload{
+    height: 40px;
+    margin: auto;
+    margin-top: calc(100% - 49px);
+    line-height: 0px;
+    vertical-align:middle ;
+}
+.buttonbox .el-upload button{
+    width: 100%;
+}
 .upload .uploading{
     width: 400px;
     height: 60px;

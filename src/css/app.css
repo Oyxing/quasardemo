@@ -132,14 +132,6 @@ option {
 
 /* 登录 */
 
-#enterbox {
-    position: relative;
-    width: 670px;
-    height: 515px;
-    border: 1px solid rgba(23, 28, 49, 0.48);
-    background: #fff url(/~assets/img/loginbg.png)no-repeat center bottom;
-}
-
 .logobox {
     width: 265px;
     background: url(/~assets/img/logoboxbg.png)no-repeat center bottom;
@@ -595,16 +587,6 @@ a.register:hover {
     padding: 0 20px 20px;
 }
 
-.listfl {
-    width: 290px;
-    height: 330px;
-    background-color: rgba(0, 0, 0, 0.18);
-    background-image: url(/~assets/img/indeximg.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    margin-right: 15px;
-}
-
 .listfr {
     width: 602px;
     height: 330px;
@@ -645,13 +627,6 @@ a.register:hover {
     overflow: hidden;
     margin-top: 46px;
     margin-left: 30px;
-}
-
-.list_iconbox_on {
-    width: 65px;
-    height: 65px;
-    background-image: url(/~assets/img/boxicon.png);
-    background-repeat: no-repeat;
 }
 
 ._icon01 {

@@ -10,5 +10,6 @@ export default {
     copedetailsdata: [],
     userdata: [],
     version: '',
-    buildPC: false
+    buildPC: false,
+    secretkey: false
 }
