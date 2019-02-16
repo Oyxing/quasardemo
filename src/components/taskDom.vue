@@ -2,12 +2,13 @@
 <div class="pagecomp">
     <div class="pagecompheard">   
         任务列表
-        <el-button type="warning">批量删除</el-button>
-        <el-button type="primary">创建任务</el-button>
+        <el-button type="warning" v-if="!ipconfig" @click="deletetask">批量删除</el-button>
+        <el-button type="primary" v-if="!ipconfig" @click="getsqlcategory">创建任务</el-button>
+        <el-button type="primary" v-if="ipconfig" @click="confighost">配置服务器</el-button>
     </div>
     <div class="showmess" v-loading="dataloading" element-loading-text="正在加载...">
         <div class="task" style="margin-top:13px">
-            <el-select v-model="value" placeholder="请选择">
+            <el-select v-model="typevalue" placeholder="请选择">
                 <el-option
                 v-for="item in options"
                 :key="item.value"
@@ -23,9 +24,8 @@
         </div>
         <div class="showtable taskshow" style="margin-top:13px"> 
             <el-table
-                height="200"
-                border
-                :data="tableData.length <= 0?[]:tableData"
+                 height="300"
+                :data="tableData.length <= 0?[]:tableData.filter(data => !search || data[typevalue].toLowerCase().includes(search.toLowerCase()))"
                 style="width: 100%"
                 @selection-change="handleSelectionChange"
                 :row-class-name="tableRowClassName">
@@ -34,94 +34,54 @@
                 width="55">
                 </el-table-column>
                 <el-table-column
-                prop="name"
-                label="任务名称"
+                :show-overflow-tooltip="true"
+                width="100"
+                prop="name" 
+                label="任务名称" 
                 > 
                 </el-table-column>
                 <el-table-column
+                width="100"
+                :show-overflow-tooltip="true"
                 prop="database"
                 label="数据库名"
                >  
                 </el-table-column>
                 <el-table-column
+                :show-overflow-tooltip="true"
+                width="90"
                 prop="status"
                 label="状态">
                  <template slot-scope="scope">
-                    <div>
                         <span v-if="!scope.row.status">执行中</span>
                         <span v-else-if="!scope.row.status">执行中</span>
                         <span v-else-if="scope.row.status == 1">执行中</span>
                         <span v-else-if="scope.row.status == 2">执行失败</span>
                         <span v-else-if="scope.row.status == 3">任务完成</span>
-                    </div>
                 </template>
                 </el-table-column>
                  <el-table-column
+                 :show-overflow-tooltip="true"
                 prop="startime"  
                 label="开始日期">  
                 <template slot-scope="scope">
-                    <div>
-                        {{scope.row.startime}}
-                        <!-- {{timestampToTime(scope.row.startime)}} -->
-                    </div>
+                        {{timestampToTime(scope.row.startime)}}
                 </template>
                 </el-table-column>
                  <el-table-column
+                 width="50"
                 prop="interval"
                 label="周期">
                 </el-table-column>
                  <el-table-column
+                 :show-overflow-tooltip="true"
                 prop="intime"
                 label="创建日期">
                 <template slot-scope="scope">
-                    <div>
-                        {{scope.row.intime}}
-                        <!-- {{timestampToTime(scope.row.intime)}} -->
-                    </div>
+                        {{timestampToTime(scope.row.intime)}}
                 </template>
                 </el-table-column>
             </el-table>
-
-            <!-- <q-table
-                :data="tableData.length <= 0?[]:tableData"
-                :columns="columns"
-                row-key="name"
-                rows-per-page-label="每页行数:"
-                :hide-bottom="hidebottom"
-            >
-                <q-td slot="body-cell-intime" slot-scope="props" :props="props">
-                </q-td>
-                <q-td slot="body-cell-startime" slot-scope="props" :props="props">
-                    {{timestampToTime(props.row.startime)}}
-                </q-td>
-                 <q-td slot="body-cell-status" slot-scope="props" :props="props">
-                   <span v-if="!props.row.status">执行中</span>
-                   <span v-else-if="!props.row.status">执行中</span>
-                   <span v-else-if="props.row.status == 1">执行中</span>
-                   <span v-else-if="props.row.status == 2">执行失败</span>
-                   <span v-else-if="props.row.status == 3">任务完成</span>
-                </q-td>
-                <q-td slot="body-cell-btn" slot-scope="props" :props="props">
-                    <div class="q-mb-xs">
-                        <q-btn label="删除" color="red-7"  @click="deletetask(props.row)"/>
-                    </div>
-                </q-td>
-                    <div id="table-bottom" slot="pagination" slot-scope="props" class="row flex-center q-py-sm">
-                        <q-btn
-                        round dense size="sm" icon="undo" color="secondary" class="q-mr-sm"
-                        :disable="props.isFirstPage"
-                        @click="props.prevPage"
-                        />
-                        <div class="q-mr-sm" style="font-size: small">
-                        {{ props.pagination.page }} / {{ props.pagesNumber }}
-                        </div>
-                        <q-btn
-                        round dense size="sm" icon="redo" color="secondary"
-                        :disable="props.isLastPage"
-                        @click="props.nextPage"
-                        />
-                    </div>
-            </q-table> -->
         </div>
     </div>
 </div>
@@ -134,6 +94,7 @@ import { userwin,timestampToTime } from 'src/statics/js/public.js'
 export default {
     data() {
         return {
+            Selectiondata:[],
             search:'',
             userwin:userwin,
             loading:true,
@@ -142,50 +103,22 @@ export default {
             timestampToTime:timestampToTime,
             ipconfig:false,
             hidebottom:true,
-            tableData:[
-                {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1518 弄',
+            tableData:[],
+             options: [{  
+                value: 'name',
+                label: '任务名称'
                 }, {
-                date: '2016-05-04',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1518 弄'
-                }, {
-                date: '2016-05-01',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1518 弄',
-                }, {
-                date: '2016-05-03',
-                name: '王小虎',
-                address: '上海市普陀区金沙江路 1518 弄'
-                }
-            ],
-             options: [{
-                value: '选项1',
-                label: '黄金糕'
-                }, {
-                value: '选项2',
-                label: '双皮奶'
-                }, {
-                value: '选项3',
-                label: '蚵仔煎'
-                }, {
-                value: '选项4',
-                label: '龙须面'
-                }, {
-                value: '选项5',
-                label: '北京烤鸭'
+                value: 'database',
+                label: '数据库名'
                 }],
-                value: ''
+            typevalue: 'name'
         }
     },
     created() {
-        // this.tasklist()
-        // this.getconfig()
+        this.tasklist()
+        this.getconfig()
     },
     mounted() {
-      
         var box = document.getElementById("box")
         var bodybox = document.getElementsByClassName('bodybox')[0]
         var bodyhandlebox = document.getElementsByClassName('bodyhandlebox')[0]
@@ -199,7 +132,7 @@ export default {
     methods:{
         // 多选
         handleSelectionChange(val){
-            console.log(val)
+            this.Selectiondata = val
         },
         tableRowClassName({row, rowIndex}) {
             if (rowIndex%2) {
@@ -306,13 +239,37 @@ export default {
             
         },
         deletetask(row){
-                var jsondata = {
-                title:' 删除任务',
+            this.$confirm('删除任务, 是否继续?', '提示', {
+                cancelButtonText: '取消',
+                confirmButtonText: '确定',
+                type: 'warning'
+                }).then(() => { 
+                        for(var i = 0 ; i < this.Selectiondata.length; i++){
+                            this.fordeltask(this.Selectiondata[i])
+                        }
+                }).catch(() => {
+
+                });
+        },
+        fordeltask(row){
+            var json = {
                 url:'/task/removetask',
-                data:{uuid:row.uuid},
-                fun:this.tasklist
+                data:{uuid:row.uuid}
             }
-            confirm(this,jsondata)
+            jsonpget(this,json,(res)=>{
+                if(!res.success){
+                    this.tasklist()
+                    this.$message({
+                        message: '删除任务成功 !',
+                        type: 'success'
+                    });
+                }else{
+                    this.$message({
+                        message: res.msg +' !',
+                        type: 'error'
+                    });
+                }
+            })
         }
     }
 }
@@ -333,16 +290,18 @@ export default {
         height: 28px;
         margin-right: 10px;
     }
-    .el-input--suffix .el-input__inner{ 
-        height: 28px;
+    .showmess .el-input--suffix .el-input__inner{ 
+        height: 28px !important;
     }
-    .task .el-select .el-input__icon{
-        line-height: 28px;
+    .showmess .el-select .el-input__icon{
+        line-height: 28px !important;
     }
-    .input-with-select .el-input__inner{
+    .showmess .input-with-select .el-input__inner{
         width: 152px;
-        height: 28px;
-    }
+        height: 28px !important;
+        border-bottom-right-radius: 0px !important;
+        border-top-right-radius: 0px !important;
+    } 
     .input-with-select .el-input-group__append{
         padding: 0 0px;
         border: 0px solid #dcdfe6;
@@ -350,6 +309,7 @@ export default {
     .input-with-select .el-input-group__append .searchbtn{
         width: 42px;
         height: 28px;
+        color: #fff;
         background: #409EFF;
         border: none;
     }
@@ -363,8 +323,15 @@ export default {
         height: 30px;
         line-height: 30px;
     }
-    .taskshow .el-table--scrollable-y .el-table__body-wrapper .el-table__row{
+    .taskshow  .el-table__body-wrapper .el-table__row{
         height: 39px;
     }
-    
+    .taskshow .el-tooltip{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .el-table td, .el-table th.is-leaf{
+        border-bottom:0px solid #ebeef5; 
+    }
 </style>

@@ -25,84 +25,7 @@
                 </el-upload>
             </div>
         </div>
-        <!-- <div class="showmess"  v-loading="loading" element-loading-text="正在加载...">
-            <div v-if="tableData.length <= 0 && btnnone" class="layui-form-item choice"> 
-                <div class="mt50" style="width: 100%;text-align: center;margin-top:50px;">
-                  <el-button type="danger" @click="creatsecret">生成密钥对</el-button>
-                  <el-button type="primary" v-if="post == 8082" @click="uploadsecret">上传密钥</el-button>
-                  <el-upload
-                    v-else
-                    style="display: inline-block;margin-left: 30px;"
-                    class="upload-demo"
-                    :action="action"
-                    :with-credentials="true"
-                    name="file"
-                    :data="{'name':'file'}"
-                    :show-file-list="false">
-                    <el-button type="primary">点击上传</el-button>
-                   </el-upload>
-                </div>
-                <div class="nonebox">
-                    <img src="statics/img/NOneimg.png" alt="">
-                    <p>暂无数据</p>
-                </div>
-            </div>
-            <div v-else-if="tableData.length == 1 && btnnone" class="layui-form-item choice"> 
-                <div class="mt10" style="width: 100%;text-align: center;">
-                  <el-button type="primary" v-if="post == 8082" @click="uploadsecret">上传密钥</el-button>
-                    <el-upload
-                    v-else
-                    style="display: inline-block;margin-left: 30px;"
-                    class="upload-demo"
-                    :with-credentials="true"
-                    name="file"
-                    :data="{'name':'file'}"
-                    :action="action"
-                    :show-file-list="false">
-                    <el-button type="primary">点击上传</el-button>
-                    </el-upload> 
-                </div>
-            </div>
-            <div v-if="tableData.length >= 1" class="showtable keyshow" > 
-               <q-table
-                   
-                    :data="tableData"
-                    :columns="columns"
-                    row-key="label"
-                    rows-per-page-label="每页行数:"
-                    :hide-bottom="hidebottom"
-                >
-                    <q-td slot="body-cell-type" slot-scope="props" :props="props">
-                        <span v-if="props.row.type == 'private'">私钥</span>
-                        <span v-else-if="props.row.type == 'public'">公钥</span>
-                    </q-td>
-                    <q-td slot="body-cell-intime" slot-scope="props" :props="props">
-                        {{timestampToTime(props.row.intime)}}
-                    </q-td>
-                    <q-td slot="body-cell-btn" slot-scope="props" :props="props">
-                        <div class="q-mb-xs">
-                            <q-btn label="下载" color="green-6"  @click="downsecret(props.row)" style="margin-right:20px;"/>
-                            <q-btn label="删除" color="red-7"  @click="delsecret(props.row)"/>
-                        </div>
-                    </q-td>
-                      <div id="table-bottom" slot="pagination" slot-scope="props" class="row flex-center q-py-sm">
-                            <q-btn
-                                round dense size="sm" icon="undo" color="secondary" class="q-mr-sm"
-                                :disable="props.isFirstPage"
-                                @click="props.prevPage"
-                            />
-                            <div class="q-mr-sm" style="font-size: small">
-                            {{ props.pagination.page }} / {{ props.pagesNumber }}
-                            </div>
-                            <q-btn
-                                round dense size="sm" icon="redo" color="secondary"
-                                :disable="props.isLastPage"
-                                @click="props.nextPage"
-                            />
-                        </div>
-                </q-table>
-            </div>
-        </div> -->
+       
     </div>
 </template>
 
@@ -172,7 +95,6 @@ export default {
                 url:'/rsa/getrsakey',
             }
             jsonpget(this,json,(res)=>{
-                console.log(res)
                 if(!res.success){
                     if(res.msg){
                         this.btnnone = true

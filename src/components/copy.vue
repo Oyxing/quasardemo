@@ -1,41 +1,35 @@
 <template>
 <div class="pagecomp">
-  
-    <div class="showmess" v-loading="loading" element-loading-text="正在加载...">
-        <div class="nonebox" v-if="tableData.length <= 0">
-            <img src="statics/img/NOneimg.png" alt="">
-            <p>暂无数据</p>
-        </div>
-        <div v-else class="showtable keyshow" > 
-            <q-table
-                :data="tableData"
-                :columns="columns"
-                row-key="name"
-                rows-per-page-label="每页行数:"
-                :hide-bottom="hidebottom"
-            >
-                <q-td slot="body-cell-btn" slot-scope="props" :props="props">
-                    <div class="q-mb-xs">
-                        <q-btn label="详情" color="red-7"  @click="detailscope(props.row)"/>
+    <div class="pagecompheard" style="margin-bottom: 24px;">   
+        备份详情
+    </div>
+    <div class="showtable copeshow" v-loading="loading" element-loading-text="正在加载...">
+           <el-table
+                 height="300"
+                :data="tableData.length <= 0?[]:tableData"
+                style="width: 100%"
+                :row-class-name="tableRowClassName">
+                <el-table-column
+                prop="id"
+                label="数据库编号"
+                > 
+                </el-table-column>
+                <el-table-column
+                prop="database_name"
+                label="备份数据库"
+               >  
+                </el-table-column>
+                 <el-table-column
+                 width="60"
+                    prop="intime"
+                    label="操作">
+                <template slot-scope="scope">
+                    <div @click="detailscope(scope.row)" style="cursor: pointer;e">
+                        <i class="iconfont icon-xiangqing" style="color:#fe9f18"></i>
                     </div>
-                </q-td>
-                    <div id="table-bottom" slot="pagination" slot-scope="props" class="row flex-center q-py-sm">
-                        <q-btn
-                        round dense size="sm" icon="undo" color="secondary" class="q-mr-sm"
-                        :disable="props.isFirstPage"
-                        @click="props.prevPage"
-                        />
-                        <div class="q-mr-sm" style="font-size: small">
-                        {{ props.pagination.page }} / {{ props.pagesNumber }}
-                        </div>
-                        <q-btn
-                        round dense size="sm" icon="redo" color="secondary"
-                        :disable="props.isLastPage"
-                        @click="props.nextPage"
-                        />
-                    </div>
-            </q-table>
-        </div>
+                </template>
+                </el-table-column>
+            </el-table>
     </div>
 </div>
 </template>
@@ -95,6 +89,14 @@ export default {
         }
     }, 
     methods:{
+        tableRowClassName({row, rowIndex}) {
+            if (rowIndex%2) {
+                return 'success-row';
+            } else {
+                return 'warning-row';
+            }
+            return '';
+        },
         querydatabase(){
             var json = {
                 url:"/user/querydatabase"
@@ -148,19 +150,14 @@ export default {
 </script>
 
 <style >
-.backup i {
-    color: #fff;
+.copeshow .el-table__header-wrapper{
+        height: 30px;
+        line-height: 30px;
 }
-.backup{
-    float: right;
-    color: #fff;
-    text-align: center;
-    line-height: 36px;
-    width:36px;
-    height: 36px;
-    margin-top: 80px;
-    margin-right: 20px;
-    border-radius:50%;
-    border: 1px solid #9c9c9c;
+.copeshow  .el-table__body-wrapper .el-table__row{
+    height: 39px;
+}
+.el-table td, .el-table th.is-leaf{
+    border-bottom:0px solid #ebeef5; 
 }
 </style>

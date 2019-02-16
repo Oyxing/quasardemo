@@ -1,5 +1,5 @@
 <template>
-    <el-dialog v-if="dialogName == '添加任务'" title="添加任务" :width="width" :visible.sync="dialogVisible" :before-close="handleClose" :close-on-press-escape="false" :close-on-click-modal="false">
+    <el-dialog v-if="dialogName == '添加任务'" title="添加任务" class="taskmode" width="66%" :visible.sync="dialogVisible" :before-close="handleClose" :close-on-press-escape="false" :close-on-click-modal="false">
         <el-form :model="ruleForm" ref="ruleForm" label-width="100px" class="demo-ruleForm">
             <el-form-item label="任务名称：" :label-width="formLabelWidth"
                 prop="name"
@@ -71,7 +71,6 @@ import { jsonpget } from 'src/statics/js/axios.js'
 export default {
         data() {
             return {
-                width:"60%",
                 elUnitdata:[
                     {
                         value: 'm',
@@ -237,13 +236,22 @@ export default {
 .el-dialog {
     height: 438px;
 }
-.el-dialog__body {
+.taskmode .el-dialog__body {
     padding: 20px 20px 0 !important;
-    height: calc(100% - 101px) !important;
+    height: calc(100% - 142px) !important;
 }
 .el-dialog__footer {
     padding: 10px 20px 10px;
     text-align: center;
-    border-top: 1px solid #eee;
+}
+.taskmode .el-date-editor.el-input, .el-date-editor.el-input__inner,.taskmode .el-select{
+    width: 100%;
+}
+
+.taskmode .dialog-footer{
+        width: 465px;
+}
+.taskmode .dialog-footer button{
+        width: 170px;
 }
 </style>

@@ -10,7 +10,7 @@
                     <span>{{timestampToTime(Date.parse(new Date())/1000).split(" ")[0]}}</span>
                 </div> 
             </div>
-            <div class="backup">
+            <div class="backup" style="margin-top:80px">
                 <router-link to="/" tag="a" ><i class="iconfont icon-ffanhui"></i></router-link>
             </div>
         </div>

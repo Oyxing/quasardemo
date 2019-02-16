@@ -1,6 +1,6 @@
 <template>
-     <el-dialog v-if="dialogName == '配置服务器' || dialogName == '更改配置服务器'" title="配置服务器" :width="width" :visible.sync="dialogVisible" :before-close="handleClose" :close-on-press-escape="false" :close-on-click-modal="false">
-        <el-form :model="ruleForm" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+     <el-dialog v-if="dialogName == '配置服务器' || dialogName == '更改配置服务器'" title="配置服务器" class="config" :width="width" :visible.sync="dialogVisible" :before-close="handleClose" :close-on-press-escape="false" :close-on-click-modal="false">
+        <el-form :model="ruleForm" ref="ruleForm" label-width="100px" class="demo-ruleForm ">
             <el-form-item label="链接host：" :label-width="formLabelWidth"
                 prop="dbserver"
                 :rules="[
@@ -141,13 +141,22 @@ export default {
 .el-dialog {
     height: 438px;
 }
-.el-dialog__body {
+.config .el-dialog__body {
     padding: 20px 20px 0 !important;
-    height: calc(100% - 101px) !important;
+    height: calc(100% - 143px) !important;
+}
+.config .el-select{
+    width: 100%;
+}
+.config .dialog-footer{
+    width: 465px;
+}
+.config .dialog-footer button{
+    width: 170px;
 }
 .el-dialog__footer {
     padding: 10px 20px 10px;
     text-align: center;
-    border-top: 1px solid #eee;
+    margin-top: 4px;
 }
 </style>

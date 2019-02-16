@@ -1,42 +1,51 @@
 <template>
      <el-dialog id="copedetaildialog" v-if="dialogName == '备份数据库详情'" title="备份数据库详情" :width="width" :visible.sync="dialogVisible" :before-close="handleClose" :close-on-press-escape="false" :close-on-click-modal="false">
-            <q-table
-                v-loading="loading"
-                element-loading-text="正在加载..."
-                :data="copedetailsdata"
-                :columns="columns"
-                row-key="label"
-                rows-per-page-label="每页行数:"
-                :hide-bottom="hidebottom"
-            >
-            <q-td slot="body-cell-createtime" slot-scope="props" :props="props">
-                    {{timestampToTime(props.row.create_time)}}
-            </q-td>
-             <q-td slot="body-cell-filesourcesize" slot-scope="props" :props="props">
-                    {{formatstoragenet(props.row.file_source_size)}}   
-            </q-td>
-            <q-td slot="body-cell-handle" slot-scope="props" :props="props">
-                    <div class="q-mb-xs">
-                        <q-btn label="下载" color="red-7"  @click="copesqldown(props.row)"/>
-                    </div>
-                </q-td>
-            <div id="table-bottom" slot="pagination" slot-scope="props" class="row flex-center q-py-sm">
-                <q-btn
-                    round dense size="sm" icon="undo" color="secondary" class="q-mr-sm"
-                    :disable="props.isFirstPage"
-                    @click="props.prevPage"
-                />
-                <div class="q-mr-sm" style="font-size: small">
-                {{ props.pagination.page }} / {{ props.pagesNumber }}
-                </div>
-                <q-btn
-                    round dense size="sm" icon="redo" color="secondary"
-                    :disable="props.isLastPage"
-                    @click="props.nextPage"
-                />
-            </div>
-        </q-table>
-            
+        <div class="showtable copemode" v-loading="loading" element-loading-text="正在加载...">
+            <el-table
+                    :show-header="false"
+                    height="300"
+                    :data="copedetailsdata.length <= 0?[]:copedetailsdata"
+                    style="width: 100%"
+                    :row-class-name="tableRowClassName">
+                    <el-table-column
+                    width="300"
+                    prop="fs_file_name"
+                    label="文件名"
+                    > 
+                    </el-table-column>
+                    <el-table-column
+                    width="100"
+                    prop="file_source_size"
+                    label="文件大小"
+                    >  
+                    <template slot-scope="scope">
+                        <div>   
+                            {{formatstoragenet(scope.row.file_source_size)}}
+                        </div>  
+                    </template>
+                    </el-table-column>
+                     <el-table-column
+                    prop="create_time"
+                    label="备份时间"
+                    >  
+                    <template slot-scope="scope">
+                        <div>   
+                            {{timestampToTime(scope.row.create_time)}}
+                        </div>  
+                    </template>
+                    </el-table-column>
+                    <el-table-column
+                    width="70"
+                        prop="intime"
+                        label="操作">
+                    <template slot-scope="scope">
+                        <div @click="copesqldown(scope.row)" style="cursor: pointer;e">
+                            <i class="iconfont icon-xiazai" style="color:#61b865"></i>
+                        </div>
+                    </template>
+                    </el-table-column>
+                </el-table>
+        </div>
     </el-dialog>
 </template>
 
@@ -52,33 +61,6 @@ export default {
             timestampToTime:timestampToTime,
             formatstoragenet:formatstoragenet,
             hidebottom:true,
-            columns:[ 
-                {
-                    name:'filename',
-                    required: true,
-                    label: '文件名',
-                    align: 'center',
-                    field: 'fs_file_name',
-                },  
-                {
-                    name:'filesourcesize',
-                    required: true,
-                    label: '文件大小',
-                    align: 'center',
-                    field: 'file_source_size',
-                },{
-                    name:'createtime',
-                    required: true,
-                    label: '备份时间',
-                    align: 'center',
-                    field: 'create_time',
-                },{
-                    name:'handle',
-                    required: true,
-                    label: '操作',
-                    align: 'center',
-                }
-            ]
         }
     },
     created() {
@@ -89,6 +71,14 @@ export default {
         }
     },
     methods:{
+        tableRowClassName({row, rowIndex}) {
+            if (rowIndex%2) {
+                return 'success-row';
+            } else {
+                return 'warning-row';
+            }
+            return '';
+        },
         handleClose(){
             this.$store.state.example.dialogVisible = false
         },
@@ -155,7 +145,17 @@ function openDownloadDialog(url, saveName)
 
 <style>
 #copedetaildialog .el-dialog__body {
-    padding: 0px 20px 0 !important;
+    padding: 0px 0px 0 !important;
     height: calc(100% - 41px) !important;
+}
+.copemode .el-table__header-wrapper{
+        height: 30px;
+        line-height: 30px;
+}
+.copemode  .el-table__body-wrapper .el-table__row{
+    height: 39px;
+}
+.copemode .el-table--enable-row-transition .el-table__body td{
+        padding-left: 16px;
 }
 </style>
