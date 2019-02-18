@@ -146,7 +146,6 @@ export default {
     height: 34px;
     line-height: 0;
     margin-top: 17px;
- 
 }
 .secretbox .btn2{
 background-color: #72a0ff !important;
@@ -171,4 +170,3 @@ background-color: #72a0ff !important;
     margin-top: 12px !important;
 }
 </style>
-
