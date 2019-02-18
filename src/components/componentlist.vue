@@ -1,7 +1,7 @@
 <template>
 <div class="pagecomp ">
     <div class="title_box ">
-        <div class="detail_title heardbj" :style="{'background-image': 'url(../assets/img/' + datamsg[activeName].img +'.png)'}">
+        <div class="detail_title heardbj">
             <div class="detailicon fl iconfont " :class="datamsg[activeName].class"></div>
             <div class="detailword fl">
                 <h3 class="detailh3">{{datamsg[activeName].detailh3}}</h3>
