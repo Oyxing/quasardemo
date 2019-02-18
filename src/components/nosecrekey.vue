@@ -5,7 +5,7 @@
         </div>
         <div class="showmess secretkey">
             <div class="secretbox">
-                <p>柚备的许多功能都是由密钥来进行验证才能操作，通过请求加入密钥开启所需功能</p>
+                <p class="nosecrekey-p">柚备的许多功能都是由密钥来进行验证才能操作，通过请求加入密钥开启所需功能</p>
                 <ul>
                     <li>需要获取秘钥,点击生成秘钥</li>
                     <li>如何使用密钥，你需要详细阅读<span @click="hrefmanual">《柚备使用手册》</span></li>
@@ -15,7 +15,7 @@
                 </el-button>
             </div>
              <div class="secretbox">
-                <p>柚备的许多功能都是由密钥来进行验证才能操作，通过请求加入密钥开启所需功能</p>
+                <p class="nosecrekey-p">柚备的许多功能都是由密钥来进行验证才能操作，通过请求加入密钥开启所需功能</p>
                 <ul>
                     <li>当有自己的密钥是,请点击上传</li>
                     <li>如何使用密钥，你需要详细阅读 <span @click="hrefmanual">《柚备使用手册》</span></li>
@@ -152,10 +152,23 @@ export default {
 background-color: #72a0ff !important;
     border-color: #72a0ff !important;
 }
+.secretbox ul li{
+    color:#9a9a9a;
+    margin-bottom:3px;
+    font-size: 14px;
+}
 .secretbox ul li span  {
     color: rgb(122, 166, 255);
     border-bottom: 1px solid rgb(122, 166, 255);
     cursor: pointer;
+}
+.nosecrekey-p{
+    margin: 0 0 10px !important;
+    font-size: 16px !important;
+    color:#7c7c7c !important;
+}
+.secretbox .btn{
+    margin-top: 12px !important;
 }
 </style>
 
