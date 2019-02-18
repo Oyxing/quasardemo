@@ -12,5 +12,6 @@ export default {
     version: '',
     buildPC: false,
     secretkey: false,
+    activeName: 'task',
     routepath: ''
 }

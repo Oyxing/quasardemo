@@ -8,21 +8,6 @@ const routes = [{
                     import ('pages/Index.vue')
             },
             {
-                path: 'secretkey',
-                component: () =>
-                    import ('components/secretkey.vue')
-            },
-            {
-                path: 'task',
-                component: () =>
-                    import ('components/taskDom.vue')
-            },
-            {
-                path: 'copy',
-                component: () =>
-                    import ('components/copy.vue')
-            },
-            {
                 path: 'evenmore',
                 component: () =>
                     import ('components/evenmore.vue')

@@ -50,6 +50,10 @@ function vippay() {
     ipc.send('href-vip')
 }
 
+function hrefmanual() {
+    ipc.send('href-manual')
+}
+
 function uppassword() {
     ipc.send('up-password')
 }
@@ -157,6 +161,7 @@ export {
     hidewin,
     minwin,
     vippay,
+    hrefmanual,
     uppassword,
     timestampToTime,
     formatstoragenet,

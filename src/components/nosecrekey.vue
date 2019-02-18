@@ -5,20 +5,20 @@
         </div>
         <div class="showmess secretkey">
             <div class="secretbox">
-                <p>柚备秘钥说明</p>
+                <p>柚备的许多功能都是由密钥来进行验证才能操作，通过请求加入密钥开启所需功能</p>
                 <ul>
                     <li>需要获取秘钥,点击生成秘钥</li>
-                    <li>秘钥应用</li>
+                    <li>如何使用密钥，你需要详细阅读<span @click="hrefmanual">《柚备使用手册》</span></li>
                 </ul>
                 <el-button class="btn" type="warning" @click="creatsecret">
                     生成秘钥
                 </el-button>
             </div>
              <div class="secretbox">
-                <p>柚备秘钥说明</p>
+                <p>柚备的许多功能都是由密钥来进行验证才能操作，通过请求加入密钥开启所需功能</p>
                 <ul>
-                    <li>需要获取秘钥,点击生成秘钥</li>
-                    <li>秘钥应用</li>
+                    <li>当有自己的密钥是,请点击上传</li>
+                    <li>如何使用密钥，你需要详细阅读 <span @click="hrefmanual">《柚备使用手册》</span></li>
                 </ul>
                 <el-button v-if="!buildPC" class="btn btn2" @click="uploadsecret" type="primary">
                     上传秘钥
@@ -41,13 +41,14 @@
     </div>
 </template>
 <script>
-import { userwin,tablebottom,timestampToTime } from 'src/statics/js/public.js'
+import { userwin,tablebottom,timestampToTime,hrefmanual } from 'src/statics/js/public.js'
 import { jsonpget } from 'src/statics/js/axios.js'
 import { secretKey,directoryDialog } from 'src/statics/js/index.js'
 import { confirm } from 'src/statics/js/confirm.js'
 export default {
     data() {
         return {
+            hrefmanual:hrefmanual,
             buildPC:this.$store.state.example.buildPC,
             userwin:userwin,
             action:'http://localhost:8080/rsa/uploadrsakey',
@@ -151,6 +152,10 @@ export default {
 background-color: #72a0ff !important;
     border-color: #72a0ff !important;
 }
-   
+.secretbox ul li span  {
+    color: rgb(122, 166, 255);
+    border-bottom: 1px solid rgb(122, 166, 255);
+    cursor: pointer;
+}
 </style>
 

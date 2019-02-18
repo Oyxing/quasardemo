@@ -3,7 +3,7 @@
     <div class="pagecompheard">   
         任务列表
         <el-button type="warning" v-if="!ipconfig" @click="deletetask">批量删除</el-button>
-        <el-button type="primary" v-if="!ipconfig" @click="getsqlcategory">创建任务</el-button>
+        <el-button type="primary" v-if="!ipconfig" @click="keytask">创建任务</el-button>
         <el-button type="primary" v-if="ipconfig" @click="confighost">配置服务器</el-button>
     </div>
     <div class="showmess" v-loading="dataloading" element-loading-text="正在加载...">
@@ -142,7 +142,7 @@ export default {
             }
             return '';
         },
-         keytask:function(){
+        keytask:function(){
             var json = {
                 url:'/rsa/getrsakey',
             }
@@ -217,7 +217,8 @@ export default {
                 cancelButtonText: '取消',
                 type: 'warning'
                 }).then(() => {
-                    this.$router.push({ path: '/secretkey'})
+                    console.log('sss')
+                    this.$store.state.example.activeName = "secretkey"
                 }).catch(() => {
                         
                 });

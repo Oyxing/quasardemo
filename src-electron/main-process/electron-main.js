@@ -93,6 +93,11 @@ function createWindow() {
             var url = "http://idcyw.cn/home/vip"
             shell.openExternal(url)
         })
+        // 手册
+    ipc.on('href-manual', function() {
+            var url = "http://idcyw.cn/static/upload/youbei.pdf"
+            shell.openExternal(url)
+        })
         // 隐藏
     ipc.on('window-hide', function() {
         mainWindow.hide();

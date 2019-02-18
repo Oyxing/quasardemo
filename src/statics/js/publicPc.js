@@ -33,6 +33,10 @@ function vippay() {
     window.open('http://idcyw.cn/home/vip')
 }
 
+function hrefmanual() {
+    window.open('http://idcyw.cn/static/upload/youbei.pdf')
+}
+
 function uppassword() {
     window.open('http://idcyw.cn/home/index')
 }
@@ -92,6 +96,7 @@ export {
     hidewin,
     minwin,
     vippay,
+    hrefmanual,
     uppassword,
     timestampToTime,
     formatstoragenet,

@@ -3,7 +3,7 @@
         <div class="showtable copemode" v-loading="loading" element-loading-text="正在加载...">
             <el-table
                     :show-header="false"
-                    height="300"
+                    height="385"
                     :data="copedetailsdata.length <= 0?[]:copedetailsdata"
                     style="width: 100%"
                     :row-class-name="tableRowClassName">

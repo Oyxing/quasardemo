@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="showmess" element-loading-text="正在加载...">
-       <el-tabs v-model="activeName" type="card" tab-position="left">
+       <el-tabs v-model="activeName" type="card" @tab-click="handleClick" tab-position="left" >
             <el-tab-pane name="task">
               <span slot="label"><i v-if="activeName == 'task'">&#9830;  </i> 任务列表</span>
                 <taskDom/>
@@ -53,7 +53,6 @@ export default {
     },
     data() {
         return {
-            activeName:'task',
             userwin:userwin,
             loading:true,
             dataloading:true,
@@ -93,7 +92,7 @@ export default {
     },
     created() {
         this.$store.state.example.routepath = this.$route.path.split('/')[1]
-        this.activeName = this.$route.params.path
+        this.$store.state.example.activeName = this.$route.params.path
          var json = {
                 url:'/rsa/getrsakey',
             }
@@ -113,7 +112,20 @@ export default {
             box.className = "handlebox"
         }
     },
+    methods:{
+        handleClick(tab){
+            this.$store.state.example.activeName = tab.paneName
+        }
+    },
     computed:{
+        activeName:{
+            get(){
+                return this.$store.state.example.activeName
+            },
+            set(){
+                return this.$store.state.example.activeName
+            }
+        },
         secretkey:{
             get(){
                 return this.$store.state.example.secretkey
