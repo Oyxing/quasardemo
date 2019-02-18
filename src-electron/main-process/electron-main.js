@@ -107,13 +107,13 @@ function createWindow() {
                         // 发送选择的对象给子进程
                         event.sender.send('selectedItem', files[0])      }  })
     });
-
-
     //系统托盘右键菜单
     var trayMenuTemplate = [{
         icon: nativeImage.createFromPath(path.join(path.join(__statics), '/img/youbei.png')),
         label: '首页',
-            click: function() {}
+            click: function() {
+            mainWindow.show();
+        }
     }, {
         type: 'separator'
     }, {

@@ -115,6 +115,13 @@ export default {
     methods:{
         handleClick(tab){
             this.$store.state.example.activeName = tab.paneName
+            if(tab.paneName == 'copy'){
+                this.$store.state.example.copefun()
+            }else if(tab.paneName == 'secretkey'){
+                this.$store.state.example.secretkeyfun()
+            }else if(tab.paneName == 'task'){
+                this.$store.state.example.taskfun()
+            }
         }
     },
     computed:{

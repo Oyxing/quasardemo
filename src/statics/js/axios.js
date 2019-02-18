@@ -1,5 +1,5 @@
 import { loginwin } from 'src/statics/js/public.js'
-var server = 'http://10.1.1.138:8080'
+var server = 'http://localhost:8080'
 
 function axiosget(_this, json) {
     var query = ""

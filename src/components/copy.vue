@@ -76,6 +76,7 @@ export default {
     },
     created() {
         this.querydatabase()
+        this.$store.state.example.copefun = this.querydatabase
     },
     mounted() {
         var box = document.getElementById("box")

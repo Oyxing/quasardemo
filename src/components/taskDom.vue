@@ -115,6 +115,7 @@ export default {
         }
     },
     created() {
+        this.$store.state.example.taskfun = this.tasklist
         this.tasklist()
         this.getconfig()
     },

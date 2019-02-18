@@ -3,7 +3,7 @@
        <p>请保存个人私钥后删除,下载本分数据时上传私钥</p>
         <div class="secretkeysow">
             <div class="secretkey" v-for="(item,index) in tableData" :title="item.name" :key="index">
-                <div class="secretbj m_y">
+                <div class="secretbj" :class="item.type== 'public'?'g_y':'m_y' ">
                     <span>{{item.type== "public"?'公钥':'私钥'}}</span>
                     <span>{{timestampToTime(item.intime)}}</span>
                 </div>
@@ -77,6 +77,7 @@ export default {
     },
     created() {
         this.getrsakey()
+        this.$store.state.example.secretkeyfun = this.getrsakey
     },
     mounted(){
         var box = document.getElementById("box")
