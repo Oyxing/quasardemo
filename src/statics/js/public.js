@@ -23,6 +23,7 @@ function userwin(path) {
     }
     ipc.send('user-window')
     seft.$router.push({ path: path })
+    seft.$store.state.example.routepath = ''
 }
 
 function operatewin(path) {

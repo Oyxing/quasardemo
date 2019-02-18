@@ -11,9 +11,9 @@
                     <!-- <li class="setbtn" @click="topiconno(topicon)">
                             <span class="topicon" :class="topicon?'topiconno':'topiconnoyes'" ></span>
                         </li> -->
-                        <li class="setbtn">
+                        <li class="setbtn" >
                             <span class="setbtnicon topiconBg"></span>
-                            <ul class="setmess">
+                            <ul class="setmess" :style="{'right':upconfig?'2px':'30px'}">
                                 <li > 
                                     <button class="passwordicon" @click="uppassword">更改密码</button>
                                 </li>
@@ -23,7 +23,7 @@
                                 <li >
                                     <router-link class="exiticon" to="/user" tag="button" >切换账户</router-link>
                                 </li>
-                                <li >
+                                <li v-if="routepath == 'componentlist'">
                                     <button class="abouticon" @click="viewabout">关于</button>
                                 </li>
                             </ul>
@@ -51,7 +51,8 @@ export default {
         return {
             topicon:false,
             btn:false,
-            uppassword:uppassword
+            uppassword:uppassword,
+            
         }
     },
     created() {
@@ -122,13 +123,21 @@ export default {
       electionbtn:electionBtn,
       dialogmode:dialogmode
   },
-   computed:{
+   computed:{ 
         upconfig:{
             get(){
                 return this.$store.state.example.upconfig
             },
             set(){
                 return this.$store.state.example.upconfig
+            }
+        },
+        routepath:{
+            get(){
+                return this.$store.state.example.routepath
+            },
+            set(){
+                return this.$store.state.example.routepath
             }
         }
     }

@@ -92,6 +92,7 @@ export default {
         }
     },
     created() {
+        this.$store.state.example.routepath = this.$route.path.split('/')[1]
         this.activeName = this.$route.params.path
          var json = {
                 url:'/rsa/getrsakey',

@@ -11,5 +11,6 @@ export default {
     userdata: [],
     version: '',
     buildPC: false,
-    secretkey: false
+    secretkey: false,
+    routepath: ''
 }
