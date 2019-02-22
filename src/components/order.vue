@@ -73,7 +73,7 @@ export default {
 .orderbtn{
     width: 190px;
     height: 40px;
-    margin-top: 22px;
+    margin-top: 16px;
     background: #ffa200;
 }
 </style>
