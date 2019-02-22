@@ -90,7 +90,7 @@
 <script>
 import { jsonpget } from 'src/statics/js/axios.js'
 import { confirm } from 'src/statics/js/confirm.js'
-import { userwin,timestampToTime } from 'src/statics/js/public.js'
+import { userwin,timestampToTime,bubbleSort } from 'src/statics/js/public.js'
 export default {
     data() {
         return {

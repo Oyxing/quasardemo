@@ -32,7 +32,7 @@
                 ]">
                 <el-input v-model="ruleForm.dbpass" type="password" autocomplete="off"></el-input>
             </el-form-item>
-            <el-form-item label="端口：" :label-width="formLabelWidth" v-if="ruleForm.category == 'mysql'"
+            <el-form-item label="端口：" :label-width="formLabelWidth" 
             prop="dbport"
                 :rules="[
                     { required: true, message: '请输入端口', trigger: 'blur' },

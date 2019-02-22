@@ -66,26 +66,21 @@ export default {
                     class:'icon-renwu',
                     detailh3:'相关任务',
                     detailp:'恢复简单，避免数据损坏',
-                    img:"rw_header_bj"
                 }, 
                 secretkey:{
                     class:'icon-miyao',
                     detailh3:'私钥秘钥',
                     detailp:'恢复简单，避免数据损坏',
-                    img:"ys_header_bj"
-
                 }, 
                 order:{
                     class:'icon-dinggou',
                     detailh3:'订购服务',
                     detailp:'恢复简单，避免数据损坏',
-                    img:"dg_header_bj"
                 }, 
                 copy:{
                     class:'icon-beifen',
                     detailh3:'备份详情',
                     detailp:'恢复简单，避免数据损坏',
-                    img:"bf_header_bj"
                 }
             }
         }

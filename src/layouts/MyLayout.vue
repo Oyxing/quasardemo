@@ -13,11 +13,11 @@
                         </li> -->
                         <li class="setbtn" >
                             <span class="setbtnicon topiconBg"></span>
-                            <ul class="setmess" :style="{'right':upconfig?'2px':'30px'}">
+                            <ul class="setmess" :style="{'right':routepath == 'componentlist' && upconfig?'2px':'30px'}">
                                 <li > 
                                     <button class="passwordicon" @click="uppassword">更改密码</button>
                                 </li>
-                                <li v-if="upconfig"> 
+                                <li v-if="routepath == 'componentlist' && upconfig"> 
                                     <button class="upsetmysql" @click="upconfigip">更改数据库配置</button>
                                 </li>
                                 <li >

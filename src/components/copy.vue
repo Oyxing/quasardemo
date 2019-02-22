@@ -36,7 +36,7 @@
 
 <script>
 
-import { userwin } from 'src/statics/js/public.js'
+import { userwin,bubbleSort } from 'src/statics/js/public.js'
 
 import { jsonpget } from 'src/statics/js/axios.js'
 export default {
@@ -105,6 +105,7 @@ export default {
             jsonpget(this,json,(res)=>{
                 if(!res.success){
                     if(res.msg){
+                       
                         this.tableData = res.msg
                     }else{
                         this.tableData = []
@@ -134,7 +135,7 @@ export default {
             jsonpget(this,json,(res)=>{
                 if(!res.success){
                     if(res.msg){
-                        this.$store.state.example.copedetailsdata = res.msg
+                        this.$store.state.example.copedetailsdata = bubbleSort(res.msg)
                     }else{
                         this.$store.state.example.copedetailsdata = []
                     }
