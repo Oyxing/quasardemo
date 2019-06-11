@@ -1,7 +1,8 @@
 import { loginwin } from 'src/statics/js/public.js'
-var server = 'http://localhost:8080'
+
 
 function axiosget(_this, json) {
+    var server = 'http://localhost:' + _this.$store.state.example.updatapath
     var query = ""
     for (var key in json.data) {
         query += key + '=' + json.data[key] + '&'
@@ -12,6 +13,7 @@ function axiosget(_this, json) {
 }
 
 function jsonpget(_this, json, fun) {
+    var server = 'http://localhost:' + _this.$store.state.example.updatapath
     if (!json.data) {
         json.data = ''
     }
@@ -39,7 +41,7 @@ function jsonpget(_this, json, fun) {
 
         })
         .catch((error) => {
-            loginwin()
+            // loginwin()
             if (_this.disabledbool) {
                 _this.disabledbool = false
             }

@@ -107,10 +107,10 @@ module.exports = function(ctx) {
                 // appCategoryType: '',
                 // osxSign: '',
                 // protocol: 'myapp://path',
-                arch: 'ia32',
-                platform: 'win32'
-                    // Window only
-                    // win32metadata: { ... }
+                // arch: 'ia32',
+                // platform: 'win32'
+                // Window only
+                // win32metadata: { ... }
             },
             builder: {
                 // https://www.electron.build/configuration/configuration

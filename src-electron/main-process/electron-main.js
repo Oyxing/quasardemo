@@ -19,7 +19,7 @@ let mainWindow
 const gotTheLock = app.requestSingleInstanceLock()
 const shell = require('electron').shell
 var bool = true
-
+var updatapath = 8988
 
 function createWindow() {
 
@@ -109,41 +109,45 @@ function createWindow() {
     });
     //系统托盘右键菜单
     var trayMenuTemplate = [{
-        icon: nativeImage.createFromPath(path.join(path.join(__statics), '/img/youbei.png')),
-        label: '首页',
-            click: function() {
-            mainWindow.show();
+            icon: nativeImage.createFromPath(path.join(path.join(__statics), '/img/youbei.png')),
+            label: '首页',
+                click: function() {
+                getpath()
+                mainWindow.show();
+            }
+        }, {
+            type: 'separator'
+        },
+        {
+            icon: nativeImage.createFromPath(path.join(path.join(__statics), '/img/youbei.png')),
+            label: '柚备官网',
+                click: function() {
+                var url = "http://idcyw.cn/"
+                shell.openExternal(url)
+            }
+        },
+        {
+            type: 'separator'
+        }, {
+            icon: nativeImage.createFromPath(path.join(path.join(__statics), '/img/youbeiout.png')),
+            label: '退出',
+              click: function() {
+                mainWindow.loadURL('http://localhost:' + updatapath + '/exit')
+                setTimeout(() => {
+                    bool = false    
+                    app.quit();
+                    app.quit(); //因为程序设定关闭为最小化，所以调用两次关闭，防止最大化时一次不能关闭的情况
+                }, 2000)
+            }
         }
-    }, {
-        type: 'separator'
-    }, {
-        icon: nativeImage.createFromPath(path.join(path.join(__statics), '/img/youbei.png')),
-        label: '柚备官网',
-            click: function() {
-            var url = "http://idcyw.cn/"
-            shell.openExternal(url)
-        }
-    }, {
-        type: 'separator'
-    }, {
-        icon: nativeImage.createFromPath(path.join(path.join(__statics), '/img/youbeiout.png')),
-        label: '退出',
-          click: function() {
-            mainWindow.loadURL('http://localhost:8080/exit')
-            setTimeout(() => {
-                bool = false    
-                app.quit();
-                app.quit(); //因为程序设定关闭为最小化，所以调用两次关闭，防止最大化时一次不能关闭的情况
-            }, 2000)
-        }
-    }];
+    ];
     appTray = new Tray(path.join(path.join(__statics), '/img/server-favicon.ico')); //app.ico是app目录下的ico文件
 
     //图标的上下文菜单
     const contextMenu = Menu.buildFromTemplate(trayMenuTemplate);
 
     //设置此托盘图标的悬停提示内容
-    appTray.setToolTip('柚备');
+    appTray.setToolTip('中光运维管理系统');
 
     //设置此图标的上下文菜单
     appTray.setContextMenu(contextMenu);
@@ -153,6 +157,15 @@ function createWindow() {
     })
 }
 
+function getpath() {
+    session.defaultSession.cookies.get({ url: "http://localhost:" + updatapath, name: 'updatapath' }, (error, cookies) => {
+        if (cookies[0]) {
+            updatapath = cookies[0].value
+        } else {
+            updatapath = 8988
+        }
+    })
+}
 
 if (!gotTheLock) {
     app.quit()

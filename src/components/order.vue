@@ -10,7 +10,6 @@
             <div class="vipdivst">
                 <div class="tableheadmess divstmess">
                     <div class="vip-table-ident leftradius"></div> 
-                    <div class="vip-table-item">手动备份</div> 
                     <div class="vip-table-item">自动备份</div> 
                     <div class="vip-table-item">空间(GB)</div> 
                     <div class="vip-table-item">备份数据库</div> 
@@ -19,7 +18,6 @@
                 <div class="userlistmess divstmess">
                     <div class="vip-table-ident">普通用户</div> 
                     <div class="vip-table-item vip-table-dui">√</div> 
-                    <div class="vip-table-item vip-table-dui">√</div> 
                     <div class="vip-table-item">5</div> 
                     <div class="vip-table-item">无限制</div> 
                     <div class="vip-table-item vip-table-money">0</div> 
@@ -27,26 +25,23 @@
                 <div class="vipmess divstmess">
                     <div class="vip-table-ident"><span class="vip-icon"></span>VIP1</div> 
                     <div class="vip-table-item vip-table-dui">√</div> 
-                    <div class="vip-table-item vip-table-dui">√</div> 
-                    <div class="vip-table-item">20</div> 
+                    <div class="vip-table-item">50</div> 
                     <div class="vip-table-item">无限制</div> 
-                    <div class="vip-table-item vip-table-money">9.9<span>元/年</span></div> 
+                    <div class="vip-table-item vip-table-money">78<span>元/年</span></div> 
                 </div> 
                 <div class="vipmess divstmess">
                     <div class="vip-table-ident"><span class="vip-icon"></span>VIP2</div> 
                     <div class="vip-table-item vip-table-dui">√</div> 
-                    <div class="vip-table-item vip-table-dui">√</div> 
-                    <div class="vip-table-item">110</div> 
+                    <div class="vip-table-item">500</div> 
                     <div class="vip-table-item">无限制</div> 
-                    <div class="vip-table-item vip-table-money">88<span>元/年</span></div> 
+                    <div class="vip-table-item vip-table-money">580<span>元/年</span></div> 
                 </div> 
                 <div class="vipmess divstmess">
                     <div class="vip-table-ident rightradius"><span class="vip-icon"></span>VIP3</div> 
                     <div class="vip-table-item vip-table-dui">√</div> 
-                    <div class="vip-table-item vip-table-dui">√</div> 
-                    <div class="vip-table-item">1010</div> 
+                    <div class="vip-table-item">1024</div> 
                     <div class="vip-table-item">无限制</div> 
-                    <div class="vip-table-item vip-table-money">777<span>元/年</span></div> 
+                    <div class="vip-table-item vip-table-money">980<span>元/年</span></div> 
                 </div>
             </div>
              <el-button class="orderbtn" type="warning" circle @click="vippay">

@@ -97,9 +97,9 @@ export default {
                         });
                     }
                     this.$store.state.example.dialogVisible = false
-                    if(this.dialogName == '配置服务器'){
+                    setTimeout(()=>{
                         this.$store.state.example.configipfun()
-                    }
+                    },500)
                     this.$refs['ruleForm'].resetFields();
                 })
                 } else {

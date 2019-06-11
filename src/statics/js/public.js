@@ -38,6 +38,8 @@ function loginwin() {
     seft.$router.push({ path: '/user' })
 }
 
+
+
 function minwin() {
     ipc.send('window-min')
 }

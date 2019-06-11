@@ -16,5 +16,7 @@ export default {
     buildPC: false,
     secretkey: false,
     activeName: 'task',
+    // 设置端口
+    updatapath: '8988',
     routepath: ''
 }

@@ -29,6 +29,7 @@ function loginwin() {
     seft.$router.push({ path: '/user' })
 }
 
+
 function vippay() {
     window.open('http://idcyw.cn/home/vip')
 }

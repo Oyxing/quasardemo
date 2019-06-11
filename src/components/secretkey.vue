@@ -1,6 +1,6 @@
 <template>
     <div class="pagecomp ">
-       <p>请保存个人私钥后删除,下载本分数据时上传私钥。<span >后缀名为pri.pem 是 私钥，后缀名为pub.pem 是 公钥</span></p>
+       <p>请保存个人私钥后删除,下载备份数据时上传私钥。<span >后缀名为pri.pem 是 私钥，后缀名为pub.pem 是 公钥</span></p>
         <div class="secretkeysow">
             <div class="secretkey" v-for="(item,index) in tableData" :title="item.name" :key="index">
                 <div class="secretbj" :class="item.type== 'public'?'g_y':'m_y' ">
