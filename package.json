@@ -10,7 +10,7 @@
         "test": "echo \"No test specified\" && exit 0"
     },
     "dependencies": {
-        "axios": "^0.18.0",
+        "axios": "^0.21.1",
         "electron": "^3.0.10",
         "node-libs-browser": "^2.1.0",
         "vue-cookies": "^1.5.7",
