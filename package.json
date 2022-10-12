@@ -21,7 +21,7 @@
         "devtron": "1.4.0",
         "electron-debug": "2.0.0",
         "electron-devtools-installer": "2.2.4",
-        "electron-packager": "^12.2.0",
+        "electron-packager": "^16.0.0",
         "element-ui": "^2.4.11",
         "quasar-cli": "^0.17.0",
         "strip-ansi": "=3.0.1"
